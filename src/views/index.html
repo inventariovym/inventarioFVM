@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inventario </title>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/login.css">
+    
 </head>
+
 <body>
-     holi 
+
+    <form action="/" method="POST" autocomplete="off">
+        <h1>Inventario V&M</h1>
+        <p>Identificación:</p>
+        <input type="text" name="user" id="user" value="<%= typeof text != 'undefined' ? user : '' %>" required> <br />
+
+        <p>Contraseña:</p>
+        <input type="password" name="password" id="password"
+            value="<%= typeof password != 'undefined' ? password : '' %>" required> <br />
+
+        <p class="center-content">
+            <input type="submit" class="btn btn-blue" value="Iniciar sesión">
+        </p>
+    </form>
 </body>
+
 </html>

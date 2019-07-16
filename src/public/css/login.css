@@ -1,0 +1,52 @@
+
+        body {
+            background-image: url("/imagenes/fondo-formulario.jpg");
+            background-color: white;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial;
+            box-sizing: border-box;
+        }
+        form {
+            background-color: black;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #FFF;
+            padding: 25px;
+            margin: 0 auto;
+            width: 191px;
+            margin: 0 auto;
+            margin-top: 150px;
+        }
+        input, textarea {
+            border: 10;
+            outline: none;
+        }
+        .field {
+            border: solid 1px;
+            padding: 10px;
+        }
+        .center-content {
+            text-align: center;
+        }
+        .btn {
+            border-radius: 5px;
+            display: inline-block;
+            padding: 11px 13px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .btn-blue {
+            color: white;
+            background-color: #2C7873;
+            outline: none;
+            border: none;
+        }
+        .btn-blue:hover {
+            background-color: #004445;
+        }
+        .btn-blue:active {
+            background-color: #021C1E;
+        }
