@@ -1,33 +1,21 @@
 const express = require('express');
 const ruta = express.Router();
-const db = require('pg').Pool
-
-const pool = new db({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'inventario',
-  password: '1',
-  port: 5432,
-})
-
-
-ruta.get('/', (req, res) => {
-    res.render('index.html', { title: 'Inventario'});
+const passport = require('passport'); 
+const db = require('./database');
+ 
+///RUTAS
+ruta.get('/', (req, res) => {  //Muestra el login.html
+    res.render('login.html', { title: 'Inventario'});
 });
 
-
-ruta.post('/', (req, res) => {
-    const { user, password } = req.body;
-    console.log(`Usuario: ${user}  Password: ${password} `);
-
-    pool.query('Insert INTO login VALUES ($1, $2)', [ user , password], (error, results) => {
-     
-        if (error) {
-            throw erro
-        } else {
-            res.render('index.html', { title: 'Inventario' }); 
-        }
-    })
+ruta.get('/navegacion', (req, res) => {  
+    res.render('inicio.html');
 });
+
+///PETICIONES
+ruta.post('/r', db.postSignIn );  //Regristro de usurios
+
+ruta.post('/', db.postSignUp);
+
 
 module.exports = ruta; 
