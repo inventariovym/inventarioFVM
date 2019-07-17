@@ -14,7 +14,6 @@ ruta.get('/navegacion', (req, res) => {
 
 ///PETICIONES
 ruta.post('/r', db.postSignIn );  //Regristro de usurios
-
 ruta.post('/', db.postSignUp);
 
 
