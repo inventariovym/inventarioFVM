@@ -9,7 +9,6 @@ const pool = new db({ //Configuracion base de datos
   port: 5432,
 })
 
-
 module.exports = {
 
   postSignUp: function (req, res, next) {  //Validar inicio de sesion
@@ -20,17 +19,17 @@ module.exports = {
       if (resultado.rows.length > 0) {
 
         const datos = resultado.rows[0];
-        console.log(datos.contrasenia); 
+        console.log(datos.contrasenia);
         if (encrip.compareSync(req.body.password, datos.contrasenia)) {
 
           res.redirect('/navegacion');
 
         } else {
-           res.redirect('/');
+          res.redirect('/');
         }
 
       } else {
-          res.redirect('/');
+        res.redirect('/');
       }
 
     });
