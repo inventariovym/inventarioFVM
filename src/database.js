@@ -1,42 +1,25 @@
 const db = require('pg').Pool;
 const encrip = require('bcrypt');
 
-const pool = new db({ //Configuracion base de datos
+const valor = { //DATOS PARA LA CONFIGURACION DE LA BASE DE DATOS
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
   password: '1',
   port: 5432
+}
+
+const pool = new db({ 
+  user: valor.user,
+  host: valor.host,
+  database: valor.database,
+  password: valor.password,
+  port: valor.port
 })
 
-
 module.exports = {
-
-  postSignUp: async function (req, res, next) {  //Validar inicio de sesion
-
-    await pool.query('SELECT * FROM login WHERE id_usuario = $1', [req.body.username], function (err, resultado, fields) {
-      if (err) throw err;
-
-      if (resultado.rows.length > 0) {
-
-        const datos = resultado.rows[0];
-        console.log(datos.contrasenia);
-        if (encrip.compareSync(req.body.password, datos.contrasenia)) {
-
-          res.redirect('/navegacion');
-
-        } else {
-          res.redirect('/');
-        }
-
-      } else {
-        res.redirect('/');
-      }
-
-    });
-
-  },
-
+  valor,  
+  
   postSignIn: async function (req, res, next) { //Regristrar usuarios
 
     const { username, password } = req.body;

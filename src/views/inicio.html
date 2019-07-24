@@ -1,18 +1,24 @@
 <!--PARA PRUEBA DE COMO LLEGAR LA BASE UN TABLA CON UNA BASE DE DATOS-->
+<link rel="stylesheet" href="/css/inicio.css">    
 
-<div class="ejemplo">
-    <table class="egt">
+<div class="cnProductos">
+    <table class="lisDatos">
         <tr>
             <th>USER</th>
             <th>CONTRASENIA</th>
+            <th>OPCIONES</th>
         </tr>
         {{#each datos }}
-        
         <tr>
             <td>{{id_usuario}} </td>
             <td>{{contrasenia}}</td>
+            <td>
+                <a href="#"><i class="fas fa-edit"></i></a>
+                <a href="#"><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
-
         {{/each }}
     </table>
+
+    <a href="/logout">Logout</a>
 </div>
