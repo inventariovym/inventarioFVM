@@ -2,12 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
-
 const sesion = require('express-session');
-
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
-
+const routes = require('./routes/rutas.js');
 
 // Ajustes
 app.set('port', 3000);
@@ -36,11 +34,8 @@ app.use(sesion({
 
 app.use(flash()); 
 
-
 // Rutas
-const routes = require('./routes/rutas.js');
 app.use('/', routes); 
-
 
 // Listening the Server
 const port = 3000;

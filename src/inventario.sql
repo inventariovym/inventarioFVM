@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.14
--- Dumped by pg_dump version 9.6.14
+-- Dumped from database version 11.4
+-- Dumped by pg_dump version 11.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -15,20 +15,6 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
 
 SET default_tablespace = '';
 
@@ -51,8 +37,8 @@ ALTER TABLE public.login OWNER TO postgres;
 --
 
 COPY public.login (id_usuario, contrasenia) FROM stdin;
-vym	$2b$08$pQ0yYcFpy77gxNXNrpSaSOODtrt0Edpawfkc8hiQp09/KBc5oCm2S
-vm	$2b$08$0rPkFLWgKyNDTYhfCxWVi.pz/RBN32wGRI4rFQ856sKIwG1BxJPmO
+VYM	$2a$10$A1GdSm6XcO.XXFcyxkn/qOph8pO8MCHBYlt.5uvpbcYARH/MxqxkK
+vym	$2a$10$fyN0tYyji8j.iN5.UA684O9j.ztcBEbg6R9Agrjm.2TcTBlxlVBki
 \.
 
 

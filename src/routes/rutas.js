@@ -1,6 +1,6 @@
 const express = require('express');
 const ruta = express.Router();
-const encrip = require('bcrypt');
+const encrip = require('bcrypt-nodejs');
 
 const db = require('../database');
 const config = require('pg').Pool;
@@ -68,6 +68,7 @@ ruta.post('/', async (req, res, next) => {
         if (resultado.rows.length > 0) {
 
             const datos = resultado.rows[0];
+            
             if (encrip.compareSync(req.body.password, datos.contrasenia)) {
                 
                 req.session.username =  req.body.username; 

@@ -1,11 +1,12 @@
 const db = require('pg').Pool;
-const encrip = require('bcrypt');
+const encrip = require('bcrypt-nodejs');
+
 
 const valor = { //DATOS PARA LA CONFIGURACION DE LA BASE DE DATOS
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1',
+  password: 'jhonhenao96',
   port: 5432
 }
 
