@@ -1,0 +1,87 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<script>
+
+    $(document).ready(function () {
+        //obtenemos el valor de los input
+        $('#adicionar').click(function () {
+
+            var producto = document.getElementById("producto").value;
+            var cantidad = document.getElementById("cantidad").value;
+            var valor = document.getElementById("valor").value;
+            var i = 1; //contador para asignar id al boton que borrara la fila
+
+            //esto seria lo que contendria la fila
+            var fila = '<tr id="row' + i + '"><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove"><i class="fas fa-trash"></i></button> </td></tr > ';
+            i++;
+
+            $('#mytable tr:first').after(fila);
+            $("#adicionados").text(""); //limpia el div adicioandos para que no se vayan acumulando
+
+            var nFilas = $("#mytable tr").length;
+            $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
+
+            
+            document.getElementById("cantidad").value = "";
+            document.getElementById("valor").value = "";
+            document.getElementById("producto").value = "";
+            document.getElementById("producto").focus();
+        });
+
+        $(document).on('click', '.btn_remove', function () {
+
+            var button_id = $(this).attr("id");
+            //cuando da click obtenemos el id del boton
+            $('#row' + button_id + '').remove(); //borra la fila
+            //limpia el div para que vuelva a contar las filas de la tabla
+            $("#adicionados").text("");
+            var nFilas = $("#mytable tr").length;
+            $("#adicionados").append(nFilas - 1);
+        });
+    });
+
+
+</script>
+<!------------------------------------------------------- AQUI ESTA LA PARTE VISUAL -->
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <p>
+                <label>Producto:</label> <br>
+                <input id="producto" class="form-control" type="text" placeholder="producto..."><br>
+            </p>
+            <p>
+                <label>cantidad:</label> <br>
+                <input id="cantidad" class="form-control" type="text" placeholder="cantidad..."><br>
+            </p>
+            <p>
+                <label>valor:</label> <br>
+                <input id="valor" class="form-control" type="text" placeholder="valor"> <br>
+            </p>
+            <button id="adicionar" class="btn btn-success" type="button">Adicionar a la tabla</button>
+        </div>
+
+    </form>
+
+    <p>Elementos en la Tabla:
+        <div id="adicionados"></div>
+    </p>
+
+    <form action="">
+        <table id="mytable" class="table table-bordered table-hover ">
+            <tr>
+                <th>Producto</th>
+                <th>cantidad</th>
+                <th>valor</th>
+                <th>Eliminar</th>
+            </tr>
+        </table>
+
+        <button id="#" type="submit" class="btn btn-success" type="button">Guardar factura</button>
+    </form>
+
+</div>

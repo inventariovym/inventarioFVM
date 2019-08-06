@@ -1,8 +1,13 @@
 <!--PARA PRUEBA DE COMO LLEGAR LA BASE UN TABLA CON UNA BASE DE DATOS-->
-<link rel="stylesheet" href="/css/inicio.css">    
 
-<div class="cnProductos">
-    <table class="lisDatos">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<div class="container">
+    <table class="table table-bordered table-hover ">
         <tr>
             <th>USER</th>
             <th>CONTRASENIA</th>
@@ -13,12 +18,29 @@
             <td>{{id_usuario}} </td>
             <td>{{contrasenia}}</td>
             <td>
-                <a href="#"><i class="fas fa-edit"></i></a>
+                <a href="/navegacion/newPass/{{id_usuario}}"><i class="fas fa-edit"></i></a>
                 <a href="#"><i class="fas fa-trash"></i></a>
             </td>
+
+        </tr>
+        {{else}}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         {{/each }}
     </table>
 
-    <a href="/logout">Logout</a>
+  
+        <form action="/navegacion/logout">
+            <button type="submit" class="btn btn-success" type="button">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
+        </form>  
+
+        <form action="/navegacion/signIn">
+            <button type="submit" class="btn btn-success" type="button">
+                <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
+        </form> 
+
 </div>

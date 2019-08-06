@@ -1,92 +1,56 @@
 const express = require('express');
 const ruta = express.Router();
-const encrip = require('bcrypt-nodejs');
-
 const db = require('../database');
-const config = require('pg').Pool;
-const val = db.valor;
 
-//Configuracion base de datos 
-const pool = new config({
-    user: val.user,
-    host: val.host,
-    database: val.database,
-    password: val.password,
-    port: val.port
-})
 
-///---------------------------------------------RUTAS
-
-//Vista login FUNCIONANDO
-ruta.get('/', (req, res) => {  
-
+ruta.get('/', (req, res) => {  //Login
     if (req.session.username) {
         res.redirect('/navegacion');
     } else {
         res.render('login.html');
     }
-
 });
 
-//Cerrar sesion FUNCIONANDO
-ruta.get('/logout', (req,res) => { 
-	
-	req.session.destroy(function(err) {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect('/');
-		}
-	});
 
-});
+ruta.get('/navegacion', db.getUser); //Navegacion
 
-ruta.get('/navegacion', async (req, res) => { //PARA PRUEBA DE COMO LLENAR UNA TABLA CON DATOS
-    
+ruta.get('/navegacion/newPass/:id', function (req, res) {  // Cambiar  contraseña
     if (req.session.username) {
 
-        await pool.query('SELECT * FROM login', function (err, resultado, fields) {
-            const datos = resultado.rows;
-            res.render('inicio.html', { datos });
-        });
-
+        const username = req.params.id;
+        res.render('newPass.html', { username });
     } else {
         res.render('login.html');
     }
 
-       
+
 });
 
-///--------------------------------------------------------------PETICIONES
+ruta.get('/navegacion/signIn', function (req, res) { //Registrar nuevo usuario
+    if (req.session.username) {
 
-//Validar inicio de sesion FUNCIONANDO
-ruta.post('/', async (req, res, next) => {  
+        res.send('aqui va el html para poder registrar')
+    } else {
+        res.render('login.html');
+    }
+});
 
-    await pool.query('SELECT * FROM login WHERE id_usuario = $1', [req.body.username], function (err, resultado, fields) {
-        if (err) throw err;
-
-        if (resultado.rows.length > 0) {
-
-            const datos = resultado.rows[0];
-            
-            if (encrip.compareSync(req.body.password, datos.contrasenia)) {
-                
-                req.session.username =  req.body.username; 
-                req.session.password =  req.body.password; 
-                res.redirect('/navegacion');
-
-            } else {
-                res.redirect('/');
-            }
+ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion 
+    req.session.destroy(function (err) {
+        if (err) {
+            console.log(err);
         } else {
             res.redirect('/');
         }
-
     });
-    
+
 });
 
-///Registrar usuarios FUNCIONANDO
-ruta.post('/navegacion/signIn', db.postSignIn);
+///-----------------------PETICIONES
+
+ruta.post('/', db.postLogin);
+ruta.post('/navegacion/signIn', db.postRegisUser);
+ruta.post('/navegacion/newPass/:id', db.postActualizarPass);
+
 
 module.exports = ruta; 
