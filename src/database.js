@@ -40,7 +40,7 @@ module.exports = {
   getMenu: async function (req, res) { //NAVEGACION
     if (req.session.username) {
 
-      res.render('menu.html');
+      res.render('factura.html');
 
     } else {
       res.redirect('/');

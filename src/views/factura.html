@@ -1,8 +1,55 @@
+<link rel="stylesheet" href="/css/inicio.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Para reutilizar codigo de la cabecera y navegacion -->
+{{> cabecera}} 
+{{> navegacion}}  
+
+<section style="margin:15px 0px 30px 240px; clear:both">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <p>
+                    <label>Producto:</label> <br>
+                    <input id="producto" class="form-control input-sm" type="text" placeholder="producto..."><br>
+                </p>
+                <p>
+                    <label>cantidad:</label> <br>
+                    <input id="cantidad" class="form-control" type="text" placeholder="cantidad..."><br>
+                </p>
+                <p>
+                    <label>valor:</label> <br>
+                    <input id="valor" class="form-control" type="text" placeholder="valor"> <br>
+                </p>
+                <button id="adicionar" class="btn btn-success" type="button">Adicionar a la tabla</button>
+            </div>
+
+        </form>
+
+        <p>Elementos en la Tabla:
+            <div id="adicionados"></div>
+        </p>
+        
+        <form action="">
+            <table id="mytable" class="table table-bordered table-hover " style="margin: 100 px auto; border: 1">
+                <tr>
+                    <th>Producto</th>
+                    <th>cantidad</th>
+                    <th>valor</th>
+                    <th>Eliminar</th>
+                </tr>
+            </table>
+            <button id="#" type="submit" class="btn btn-success" type="button">Guardar factura</button>
+        </form>
+
+
+    </div>
+</section>
+
+{{> footer}}
 
 
 <script>
@@ -44,46 +91,4 @@
             $("#adicionados").append(nFilas - 1);
         });
     });
-
-
 </script>
-<!------------------------------------------------------- AQUI ESTA LA PARTE VISUAL -->
-
-<div class="container">
-    <form>
-        <div class="form-group">
-            <p>
-                <label>Producto:</label> <br>
-                <input id="producto" class="form-control" type="text" placeholder="producto..."><br>
-            </p>
-            <p>
-                <label>cantidad:</label> <br>
-                <input id="cantidad" class="form-control" type="text" placeholder="cantidad..."><br>
-            </p>
-            <p>
-                <label>valor:</label> <br>
-                <input id="valor" class="form-control" type="text" placeholder="valor"> <br>
-            </p>
-            <button id="adicionar" class="btn btn-success" type="button">Adicionar a la tabla</button>
-        </div>
-
-    </form>
-
-    <p>Elementos en la Tabla:
-        <div id="adicionados"></div>
-    </p>
-
-    <form action="">
-        <table id="mytable" class="table table-bordered table-hover ">
-            <tr>
-                <th>Producto</th>
-                <th>cantidad</th>
-                <th>valor</th>
-                <th>Eliminar</th>
-            </tr>
-        </table>
-
-        <button id="#" type="submit" class="btn btn-success" type="button">Guardar factura</button>
-    </form>
-
-</div>
