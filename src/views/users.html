@@ -1,6 +1,7 @@
 <!--PARA PRUEBA DE COMO LLEGAR LA BASE UN TABLA CON UNA BASE DE DATOS-->
+<link rel="stylesheet" href="/css/inicio.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    
+
 
 <div class="container">
     <table class="table table-bordered table-hover ">
@@ -28,16 +29,26 @@
         {{/each }}
     </table>
 
-        <form action="/navegacion/logout">
-            <button type="submit" class="btn btn-success" type="button">
-                <i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
-        </form>  
+    <form action="/navegacion/logout">
+        <button type="submit" class="btn btn-success" type="button">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
+    </form>
 
-        <form action="/navegacion/signIn">
-            <button type="submit" class="btn btn-success" type="button">
-                <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
-        </form>      
+    <form action="/navegacion/signIn">
+        <button type="submit" class="btn btn-success" type="button">
+            <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
+    </form>
 </div>
 
-
-
+<!--MENSAJES-->
+{{#each exitoUser }}
+    <script>
+        toastr.success("Actualizacion exitosa");
+    </script>
+{{else}}
+    {{#each errorUser }}
+        <script>
+         toastr.warning("Actualizacion fallida, porfavor verificar los datos");
+        </script>
+    {{/each}}
+{{/each}}

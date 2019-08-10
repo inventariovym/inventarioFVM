@@ -1,12 +1,4 @@
 <link rel="stylesheet" href="/css/login.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-{{#each datos}}
-  <script>
-      toastr.warning('Usuario o contraseña incorrectas');
-  </script>
-{{/each}}
 
 <form action="/" method="POST" autocomplete="off">
     <h1>Inventario V&M</h1>
@@ -21,3 +13,10 @@
     </p>
 </form>
 
+
+<!--Mensajes-->
+{{#each datos}}
+  <script>
+      toastr.warning('Usuario o contraseña incorrectas');
+  </script>
+{{/each}}

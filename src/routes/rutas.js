@@ -3,6 +3,8 @@ const ruta = express.Router();
 const db = require('../database');
 var datos = []; 
 
+//RUTAS
+
 ruta.get('/', (req, res) => {  //Login
     if (req.session.username) {
         datos=[];
@@ -13,6 +15,7 @@ ruta.get('/', (req, res) => {  //Login
         datos= [true]; 
     }
 });
+
 ruta.get('/navegacion', db.getMenu); //Navegacion
 
 ruta.get('/navegacion/users', db.getUser); //Usuarios
@@ -50,11 +53,10 @@ ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion
 
 });
 
-///-----------------------PETICIONES
+//PETICIONES
 
 ruta.post('/', db.postLogin);
 ruta.post('/navegacion/signIn', db.postRegisUser);
 ruta.post('/navegacion/newPass/:id', db.postActualizarPass);
-
 
 module.exports = ruta; 
