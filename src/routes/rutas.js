@@ -7,10 +7,11 @@ var datos = [];
 
 ruta.get('/', (req, res) => {  //Login
     if (req.session.username) {
+
         datos=[];
         res.redirect('/navegacion');
-        
     } else {
+        
         res.render('login.html', {datos});
         datos= [true]; 
     }
@@ -22,13 +23,12 @@ ruta.get('/navegacion/users', db.getUser); //Usuarios
 
 ruta.get('/navegacion/newPass/:id', function (req, res) {  // Cambiar  contraseña
     if (req.session.username) {
-        const username = req.params.id;
+
+        var username = req.params.id;
         res.render('newPass.html', { username });
     } else {
         res.redirect('/');
     }
-
-
 });
 
 ruta.get('/navegacion/signIn', function (req, res) { //Registrar nuevo usuario
@@ -50,7 +50,6 @@ ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion
             res.redirect('/');
         }
     });
-
 });
 
 //PETICIONES
@@ -58,5 +57,6 @@ ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion
 ruta.post('/', db.postLogin);
 ruta.post('/navegacion/signIn', db.postRegisUser);
 ruta.post('/navegacion/newPass/:id', db.postActualizarPass);
+ruta.post('/navegacion/delUser/:id', db.postDelUser);
 
 module.exports = ruta; 

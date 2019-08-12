@@ -2,8 +2,27 @@
 <link rel="stylesheet" href="/css/inicio.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
+<script>
+
+    function eliminar(val) {
+
+        var texto1 = "<form method='POST' action='/navegacion/delUser/" + val.id +
+            "'> <h4>¿Esta seguro de eliminar este usuario? </h4><br /> " +
+            "<button type='submit' class='btn btn-default'>Si</button></form>";
+
+        toastr.info(texto1, "Confirmacion",
+            {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+            });
+    }
+
+</script>
 
 <div class="container">
+
+
     <table class="table table-bordered table-hover ">
         <tr>
             <th>USER</th>
@@ -15,8 +34,8 @@
             <td>{{id_usuario}} </td>
             <td>{{contrasenia}}</td>
             <td>
-                <a href="/navegacion/newPass/{{id_usuario}}"><i class="fas fa-edit"></i></a>
-                <a href="#"><i class="fas fa-trash"></i></a>
+                <a href="/navegacion/newPass/{{id_usuario}}"><i class="fas fa-edit" style="color: royalblue"></i></a>
+                <a onclick="eliminar(this)" id={{id_usuario}}><i class="fas fa-trash" style="color: brown"></i></a>
             </td>
 
         </tr>
@@ -28,27 +47,27 @@
         </tr>
         {{/each }}
     </table>
-
-    <form action="/navegacion/logout">
-        <button type="submit" class="btn btn-success" type="button">
+    <a href="/navegacion/logout">
+        <button type="button" class="btn btn-success" type="button">
             <i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
-    </form>
+    </a>
 
-    <form action="/navegacion/signIn">
+    <a href="/navegacion/signIn">
         <button type="submit" class="btn btn-success" type="button">
             <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
-    </form>
+    </a>
+
 </div>
 
 <!--MENSAJES-->
 {{#each exitoUser }}
-    <script>
-        toastr.success("Actualizacion exitosa");
-    </script>
+<script>
+    toastr.success("Actualizacion realizada satisfactoriamente", "Exito");
+</script>
 {{else}}
-    {{#each errorUser }}
-        <script>
-         toastr.warning("Actualizacion fallida, porfavor verificar los datos");
-        </script>
-    {{/each}}
+{{#each errorUser }}
+<script>
+    toastr.warning("Actualizacion fallida, porfavor verificar los datos", "Fallo");
+</script>
+{{/each}}
 {{/each}}

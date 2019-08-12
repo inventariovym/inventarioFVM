@@ -13,6 +13,16 @@ var errorUser = [], exitoUser = [];
 
 module.exports = {
 
+  getMenu: async function (req, res) { //NAVEGACION
+    if (req.session.username) {
+
+      res.render('factura.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
   postLogin: async function (req, res) { //INICIO DE SESION
 
     await pool.query('SELECT * FROM login WHERE id_usuario = $1', [req.body.username], (err, resultado) => {
@@ -36,16 +46,6 @@ module.exports = {
       }
 
     });
-  },
-
-  getMenu: async function (req, res) { //NAVEGACION
-    if (req.session.username) {
-
-      res.render('factura.html');
-
-    } else {
-      res.redirect('/');
-    }
   },
 
   getUser: async function (req, res) { //LISTA DE USUARIOS EN BD
@@ -79,12 +79,12 @@ module.exports = {
           if (error) {
 
             errorUser.push(true);
-            res.redirect('/navegacion');
+            res.redirect('/navegacion/users');
             throw error;
           } else {
 
             exitoUser.push(true);
-            res.redirect('/navegacion');
+            res.redirect('/navegacion/users');
           }
 
         })
@@ -114,5 +114,33 @@ module.exports = {
 
       res.redirect('/');
     }
+  }, 
+
+  postDelUser: async function (req, res){ //Eliminar usuario
+
+    if (req.session.username) {
+
+      var username = req.params.id;
+
+      await pool.query('DELETE FROM  login WHERE id_usuario = $1', [username], (error, results) => {
+
+        if (error) {
+
+          errorUser.push(true);
+          exitoUser=[];
+          res.redirect('/navegacion/users');
+        } else {
+
+          exitoUser.push(true);
+          errorUser=[];
+          res.redirect('/navegacion/users');
+        }
+      })
+    } else {
+
+      res.redirect('/');
+    }
   }
+
+
 };

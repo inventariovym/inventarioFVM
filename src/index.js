@@ -18,7 +18,6 @@ app.engine('.html', exphbs({
     extname: '.html'
 }));
 app.set('views engine', 'hbs');
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -26,13 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(sesion({
     secret: 'vidaymente',
     resave: true,
     saveUninitialized: true
 }));
-
 app.use(flash()); 
 
 // Rutas
