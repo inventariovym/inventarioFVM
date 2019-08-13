@@ -1,0 +1,78 @@
+.contenido {
+    margin-left: 230px;
+    margin-top: 0px;
+    height: 100%;
+}
+
+p {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Calibri';
+}
+
+.botones-factura {
+    margin-left: 20px;
+    color: white;
+    background-color: #2C7873;
+    border-radius: 5px;
+    border-bottom: none;
+    border-style: none;
+    width: 180px;
+    height: 40px;
+    font-family: 'Calibri';
+    font-size: 15px;
+    outline: none;
+}
+
+button:hover {
+    background-color: #021C1E;
+    color: white;
+}
+
+table {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    width: 100%;
+    font-family: 'Calibri';
+}
+
+.button-delete {
+    color: white;
+    background-color: red;
+    border-radius: 15px;
+    border-bottom: none;
+    border-style: none;
+    width: 30px;
+    height: 30px;
+    font-family: 'Calibri';
+    font-size: 15px;
+    outline: none;
+}
+
+.form-control {
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Calibri';
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+.centrar {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    align-items: center;
+}
+
+th {
+    width: 90px;
+    height: 30px;
+    border: grey 0.5px solid;
+}
