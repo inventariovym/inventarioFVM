@@ -1,6 +1,6 @@
 
         body {
-            background-image: url("/imagenes/fondo-formulario.jpg");
+            background-image: url("/imagenes/comida-saludable.jpg");
             background-color: white;
             background-size: cover;
             background-position: center center;
@@ -10,21 +10,23 @@
             box-sizing: border-box;
         }
         form {
+            
             background-color: black;
             border-radius: 5px;
-            font-size: 13px;
+            font-size: 15px;
             color: #FFF;
             padding: 25px;
             margin: 0 auto;
-            width: 191px;
+            width: 250px;
             margin: 0 auto;
-            margin-top: 150px;
+            margin-top: 200px;
         }
         input, textarea {
+            font-size: 18px;
             border: 10;
             outline: none;
             width: 100%;
-            height: 20px;
+            height: 30px;
         }
         .field {
             border: solid 1px;
@@ -38,7 +40,7 @@
             display: inline-block;
             padding: 11px 13px;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 18px;
             height: 38px;
         }
         .btn-blue {
