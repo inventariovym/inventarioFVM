@@ -1,11 +1,11 @@
 const express = require('express');
-const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
 const sesion = require('express-session');
 const bodyParser = require('body-parser');
-const flash = require('connect-flash');
 const routes = require('./routes/rutas.js');
+
+const app = express();
 
 // Ajustes
 app.set('port', 3000);
@@ -30,7 +30,6 @@ app.use(sesion({
     resave: true,
     saveUninitialized: true
 }));
-app.use(flash()); 
 
 // Rutas
 app.use('/', routes); 
