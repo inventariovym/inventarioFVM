@@ -5,11 +5,11 @@
 {{> cabecera}}
 {{> navegacion}}
 
-<section class="contenido">
+<section class="contenido" style="overflow: hidden">
     <div class="centrar">
         <h2>Detalles de la compra</h2>
     </div>
-    <div class="container">
+    <div>
         <form>
             <div>
                 <p>
@@ -32,7 +32,7 @@
             <h2>Facturación</h2>
         </div>
         <div id="adicionados"></div>
-        <div style="overflow: scroll; height: 150px">
+        <div style="overflow: scroll; height: 100px; margin-left: 20px; margin-right: 20px">
             <table id="mytable" class="table">
                 <tr>
                     <th>Producto</th>
@@ -42,8 +42,8 @@
                 </tr>
             </table>
         </div>
-        <div style="align-content: center; margin-top: 15px">
-            <button id="#" type="submit" class="botones-factura">Guardar factura</button>
+        <div style="align-content: center; margin-top: 15px; margin-bottom: 15px">
+                <button id="#" type="submit" class="botones-factura">Guardar factura</button>
         </div>
     </div>
 </section>
