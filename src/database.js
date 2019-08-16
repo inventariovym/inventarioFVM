@@ -1,5 +1,6 @@
 var db = require('pg').Pool;
 var encrip = require('bcrypt-nodejs');
+var errorUser = [], exitoUser = [];
 
 var pool = new db({
   user: 'postgres',
@@ -9,15 +10,79 @@ var pool = new db({
   port: 5432
 })
 
-var errorUser = [], exitoUser = [];
 
 module.exports = {
 
-  getMenu: async function (req, res) { //NAVEGACION
+  getMenu: function (req, res) { //NAVEGACION
+    if (req.session.username) {
+
+      res.render('menu.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getCompra: function (req, res) { //COMPRA
     if (req.session.username) {
 
       res.render('factura.html');
 
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getProducto:  function (req, res) { //PRODUCTOS
+    if (req.session.username) {
+
+      res.render('productos.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getSalidaProduc:  function (req, res) { //SALIDA PRODUCTOS
+    if (req.session.username) {
+
+      res.render('salidaProductos.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getReporte: function (req, res) { //REPORTE
+    if (req.session.username) {
+
+      res.render('reportes.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getUser: async  function (req, res) { //ADMINISTRAR ACCESOS
+    if (req.session.username) {
+
+      await pool.query('SELECT * FROM login', function (err, resultado, fields) {
+
+        var datos = resultado.rows;
+        res.render('users.html', { datos, errorUser, exitoUser });
+        exitoUser = []; errorUser = [];
+      });
+
+    } else {
+
+      res.redirect('/');
+    }
+  },
+   
+  getNewUser:  function (req, res) { //Registrar Usuario
+
+    if (req.session.username) {
+       res.render('newUser.html');
     } else {
       res.redirect('/');
     }
@@ -48,23 +113,10 @@ module.exports = {
     });
   },
 
-  getUser: async function (req, res) { //LISTA DE USUARIOS EN BD
-    if (req.session.username) {
 
-      await pool.query('SELECT * FROM login', function (err, resultado, fields) {
-
-        var datos = resultado.rows;
-        res.render('users.html', { datos, errorUser, exitoUser });
-        exitoUser = []; errorUser = [];
-      });
-
-    } else {
-
-      res.redirect('/');
-    }
-  },
 
   postActualizarPass: async function (req, res) { //ACTUALIZAR CONTRASEÑA
+    exitoUser = []; errorUser = [];
 
     if (req.session.username) {
 
@@ -79,11 +131,13 @@ module.exports = {
           if (error) {
 
             errorUser.push(true);
+            exitoUser = [];
             res.redirect('/navegacion/users');
             throw error;
           } else {
 
             exitoUser.push(true);
+            errorUser = [];
             res.redirect('/navegacion/users');
           }
 
@@ -94,6 +148,7 @@ module.exports = {
   },
 
   postRegisUser: async function (req, res) { //Registrar usuarios
+    exitoUser = []; errorUser = [];
 
     if (req.session.username) {
 
@@ -105,18 +160,25 @@ module.exports = {
 
         if (error) {
 
+          errorUser.push(true);
+          exitoUser = [];
+          res.redirect('/navegacion/users');
           throw error
         } else {
-          res.render('login.html', { title: 'Inventario' });
+
+          exitoUser.push(true);
+          errorUser = [];
+          res.redirect('/navegacion/users');
         }
       })
     } else {
 
       res.redirect('/');
     }
-  }, 
+  },
 
-  postDelUser: async function (req, res){ //Eliminar usuario
+  postDelUser: async function (req, res) { //Eliminar usuario
+    exitoUser = []; errorUser = [];
 
     if (req.session.username) {
 
@@ -127,12 +189,12 @@ module.exports = {
         if (error) {
 
           errorUser.push(true);
-          exitoUser=[];
+          exitoUser = [];
           res.redirect('/navegacion/users');
         } else {
 
           exitoUser.push(true);
-          errorUser=[];
+          errorUser = [];
           res.redirect('/navegacion/users');
         }
       })

@@ -20,7 +20,7 @@
                 <td>{{id_usuario}} </td>
                 <td>{{contrasenia}}</td>
                 <td>
-                    <a href="/navegacion/newPass/{{id_usuario}}">
+                    <a href="/navegacion/users/newPass/{{id_usuario}}">
     
                         <button type="button"  class="button-edit"><i class="fas fa-edit" style="color: rgb(34, 75, 197)"></i></button>
                         </a>
@@ -39,12 +39,8 @@
             </tr>
             {{/each }}
         </table>
-        <a href="/navegacion/logout">
-            <button type="button" class="btn btn-success" type="button">
-                <i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
-        </a>
     
-        <a href="/navegacion/signIn">
+        <a href="/navegacion/users/signIn">
             <button type="submit" class="btn btn-success" type="button">
                 <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
         </a>
@@ -53,11 +49,13 @@
 </section>
 
 {{> footer}}
+
+
 <script>
 
     function eliminar(val) {
 
-        var texto1 = "<form method='POST' action='/navegacion/delUser/" + val.id +
+        var texto1 = "<form method='POST' action='/navegacion/users/delUser/" + val.id +
             "'> <h4>¿Esta seguro de eliminar este usuario? </h4><br /> " +
             "<button type='submit' class='btn btn-default'>Si</button></form>";
 
@@ -74,12 +72,12 @@
 <!--MENSAJES-->
 {{#each exitoUser }}
 <script>
-    toastr.success("Actualizacion realizada satisfactoriamente", "Exito");
+    toastr.success("Operacion realizada satisfactoriamente", "EXITO");
 </script>
 {{else}}
 {{#each errorUser }}
 <script>
-    toastr.warning("Actualizacion fallida, porfavor verificar los datos", "Fallo");
+    toastr.warning("Operacion fallida, porfavor verificar los datos", "ATENCION");
 </script>
 {{/each}}
 {{/each}}

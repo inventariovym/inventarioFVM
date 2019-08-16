@@ -5,7 +5,7 @@ var datos = [];
 
 //RUTAS
 
-ruta.get('/', (req, res) => {  //Login
+ruta.get('/', (req, res) => {  //Inicio sesion
     if (req.session.username) {
 
         datos=[];
@@ -14,29 +14,6 @@ ruta.get('/', (req, res) => {  //Login
         
         res.render('login.html', {datos});
         datos= [true]; 
-    }
-});
-
-ruta.get('/navegacion', db.getMenu); //Navegacion
-
-ruta.get('/navegacion/users', db.getUser); //Usuarios
-
-ruta.get('/navegacion/newPass/:id', function (req, res) {  // Cambiar  contraseña
-    if (req.session.username) {
-
-        var username = req.params.id;
-        res.render('newPass.html', { username });
-    } else {
-        res.redirect('/');
-    }
-});
-
-ruta.get('/navegacion/signIn', function (req, res) { //Registrar nuevo usuario
-    if (req.session.username) {
-
-        res.send('aqui va el html para poder registrar')
-    } else {
-        res.redirect('/');
     }
 });
 
@@ -52,11 +29,32 @@ ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion
     });
 });
 
+//PRIMARIOS
+
+ruta.get('/navegacion', db.getMenu); //Navegacion
+ruta.get('/navegacion/compra', db.getCompra); //Compras
+ruta.get('/navegacion/producto', db.getProducto); //Productos
+ruta.get('/navegacion/salidaProducto', db.getSalidaProduc); //Salida Productos
+ruta.get('/navegacion/reportes', db.getReporte); //Reportes
+ruta.get('/navegacion/users', db.getUser); //Administrar Accesos
+
+//SECUNDARIOS
+ruta.get('/navegacion/users/signIn', db.getNewUser);
+
+ruta.get('/navegacion/users/newPass/:id', function (req, res) {  // Cambiar  contraseña
+    if (req.session.username) {
+        var username = req.params.id;
+        res.render('newPass.html', { username });
+    } else {
+        res.redirect('/');
+    }
+});
+
 //PETICIONES
 
 ruta.post('/', db.postLogin);
-ruta.post('/navegacion/signIn', db.postRegisUser);
-ruta.post('/navegacion/newPass/:id', db.postActualizarPass);
-ruta.post('/navegacion/delUser/:id', db.postDelUser);
+ruta.post('/navegacion/users/signIn', db.postRegisUser);
+ruta.post('/navegacion/users/newPass/:id', db.postActualizarPass);
+ruta.post('/navegacion/users/delUser/:id', db.postDelUser);
 
 module.exports = ruta; 
