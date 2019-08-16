@@ -34,8 +34,14 @@
             <td>{{id_usuario}} </td>
             <td>{{contrasenia}}</td>
             <td>
-                <a href="/navegacion/newPass/{{id_usuario}}"><i class="fas fa-edit" style="color: royalblue"></i></a>
-                <a onclick="eliminar(this)" id={{id_usuario}}><i class="fas fa-trash" style="color: brown"></i></a>
+                <a href="/navegacion/newPass/{{id_usuario}}">
+
+                    <button type="button"  class="button-edit"><i class="fas fa-edit" style="color: rgb(34, 75, 197)"></i></button>
+                    </a>
+                <a onclick="eliminar(this)" id={{id_usuario}}> 
+                    
+                    <button type="button"  class="button-delete"><i class="fas fa-trash" style="color: rgb(136, 15, 15)"></i></button>
+                    </a>
             </td>
 
         </tr>
