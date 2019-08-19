@@ -1,0 +1,35 @@
+.contenido {
+    margin-left: 230px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0%;
+    height: auto;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Calibri';
+    font-size: 30px;
+    margin-top: 50px;
+    cursor: default;
+}
+
+table {
+    width: 95%;
+    margin: 0 auto;
+    font-family: 'Calibri';
+    font-size: 20px;
+}
+
+th {
+    width: 300px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
