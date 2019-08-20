@@ -1,0 +1,61 @@
+.contenido {
+    margin-left: 230px;
+    overflow: hidden;
+}
+
+.datos {
+    overflow: scroll;
+    width: 90%;
+    margin: 0 auto;
+    height: 400px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Calibri';
+    font-size: 30px;
+    background-color: white;
+    color: black;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    width: 25%;
+    font-family: 'Calibri';
+    border: solid 0.8px grey;
+    border-spacing: 0%;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    cursor: default;
+}
+
+th {
+    background-color: #020C0D;
+    color: white;
+    height: 30px;
+    padding: 0%;
+}
+
+table tr:nth-child(odd) {
+    background-color: #D2DAD9;
+}
+
+.div1 {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+button {
+    margin: 0 auto;
+    height: 35px;
+    width: 150px;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

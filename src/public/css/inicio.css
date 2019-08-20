@@ -15,7 +15,7 @@ body {
 
 .sidebar {
     float: left;
-    font-family: calibri;
+    font-family: 'calibri';
     position: absolute;
     width: 230px;
     height: 100%;
