@@ -1,6 +1,26 @@
+<link rel="stylesheet" href="/css/productos.css">
 
 {{> cabecera}}
 {{> navegacion}}
 
+<section style="margin-left: 230px">
+    <div>
+        <h1>Creación de usuario nuevo</h1>
+    </div>
+    <div>
+        <label>Nombre de usuario: </label><br>
+        <input type="text" required>
+    </div>
+    <div>
+        <label>Contraseña: </label><br>
+        <input type="password" required>
+    </div>
+    <div class="div1">
+        <button style="background-color: #13AAA1">Aceptar <i class="fas fa-check-circle"></i></button>
+        <a href="/navegacion/users">
+        <button style="background-color: #0E7771">Cancelar <i class="fas fa-ban"></i></button>
+    </a>
+    </div>
+</section>
 
 {{> footer}}

@@ -1,30 +1,29 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/users.css">
 
 {{> cabecera}}
 {{> navegacion}}
 
-<section class="contenido" style="margin-left: 230px">
-    <div class="container">
-
-
-        <table class="table table-bordered table-hover ">
+<section class="contenido">
+    <div>
+        <h1>Listado de usuarios</h1>
+    </div>
+    <div>
+        <table>
             <tr>
-                <th>USER</th>
-                <th>CONTRASENIA</th>
-                <th>OPCIONES</th>
+                <th>Usuario</th>
+                <th>Opciones</th>
             </tr>
             {{#each datos }}
             <tr>
                 <td>{{id_usuario}} </td>
-                <td>{{contrasenia}}</td>
                 <td>
                     <a href="/navegacion/users/newPass/{{id_usuario}}">
     
-                        <button type="button"  class="button-edit"><i class="fas fa-edit" style="color: rgb(34, 75, 197)"></i></button>
+                        <button type="button" class="boton-opciones"><i class="fas fa-edit" style="color: black"></i></button>
                         </a>
                     <a onclick="eliminar(this)" id={{id_usuario}}> 
                         
-                        <button type="button"  class="button-delete"><i class="fas fa-trash" style="color: rgb(136, 15, 15)"></i></button>
+                        <button type="button" style="color: white" class="boton-opciones"><i class="fas fa-trash" style="color: #D61A1A"></i></button>
                         </a>
                 </td>
     
@@ -33,16 +32,17 @@
             <tr>
                 <td></td>
                 <td></td>
-                <td></td>
             </tr>
             {{/each }}
         </table>
     
+        <div>
         <a href="/navegacion/users/signIn">
-            <button type="submit" class="btn btn-success" type="button">
-                <i class="fas fa-sign-out-al"></i> Nuevo usuario</button>
+            <button type="submit" class="boton-nuevo" type="button">
+                Nuevo usuario <i class="fas fa-user-plus"></i>
+            </button>
         </a>
-    
+        </div>
     </div>
 </section>
 
@@ -55,7 +55,7 @@
 
         var texto1 = "<form method='POST' action='/navegacion/users/delUser/" + val.id +
             "'> <h4>¿Esta seguro de eliminar este usuario? </h4><br /> " +
-            "<button type='submit' class='btn btn-default'>Si</button></form>";
+            "<button type='submit' class='boton-opciones'>Si</button></form>";
 
         toastr.info(texto1, "Confirmacion",
             {
