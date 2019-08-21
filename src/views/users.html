@@ -11,22 +11,27 @@
         <table>
             <tr>
                 <th>Usuario</th>
-                <th>Opciones</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
             {{#each datos }}
             <tr>
                 <td>{{id_usuario}} </td>
                 <td>
                     <a href="/navegacion/users/newPass/{{id_usuario}}">
-    
-                        <button type="button" class="boton-opciones"><i class="fas fa-edit" style="color: black"></i></button>
-                        </a>
-                    <a onclick="eliminar(this)" id={{id_usuario}}> 
-                        
-                        <button type="button" style="color: white" class="boton-opciones"><i class="fas fa-trash" style="color: #D61A1A"></i></button>
-                        </a>
+                        <button type="button" class="button-edit"><i class="fas fa-edit"
+                                style="color: black"></i></button>
+                    </a>
                 </td>
-    
+                
+                <td>
+                    <a onclick="eliminar(this)" id={{id_usuario}}>
+
+                        <button type="button" style="color: white" class="button-delete"><i class="fas fa-trash"
+                                style="color: white"></i></button>
+                    </a>
+                </td>
+
             </tr>
             {{else}}
             <tr>
@@ -35,13 +40,13 @@
             </tr>
             {{/each }}
         </table>
-    
+
         <div>
-        <a href="/navegacion/users/signIn">
-            <button type="submit" class="boton-nuevo" type="button">
-                Nuevo usuario <i class="fas fa-user-plus"></i>
-            </button>
-        </a>
+            <a href="/navegacion/users/signIn">
+                <button type="submit" class="boton-nuevo" type="button">
+                    Nuevo usuario <i class="fas fa-user-plus"></i>
+                </button>
+            </a>
         </div>
     </div>
 </section>
@@ -55,7 +60,7 @@
 
         var texto1 = "<form method='POST' action='/navegacion/users/delUser/" + val.id +
             "'> <h4>¿Esta seguro de eliminar este usuario? </h4><br /> " +
-            "<button type='submit' class='boton-opciones'>Si</button></form>";
+            "<button type='submit'>Si</button></form>";
 
         toastr.info(texto1, "Confirmacion",
             {
@@ -75,7 +80,7 @@
 {{else}}
 {{#each errorUser }}
 <script>
-    toastr.warning("Operacion fallida, te pido por favor verificar los datos", "ATENCION");
+    toastr.warning("Operacion fallida, por favor verificar los datos", "ATENCION");
 </script>
 {{/each}}
 {{/each}}

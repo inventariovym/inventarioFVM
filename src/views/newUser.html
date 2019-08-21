@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/productos.css">
+<link rel="stylesheet" href="/css/newUser.css">
 
 {{> cabecera}}
 {{> navegacion}}
@@ -7,20 +7,29 @@
     <div>
         <h1>Creación de usuario nuevo</h1>
     </div>
-    <div>
-        <label>Nombre de usuario: </label><br>
-        <input type="text" required>
-    </div>
-    <div>
-        <label>Contraseña: </label><br>
-        <input type="password" required>
-    </div>
-    <div class="div1">
-        <button style="background-color: #13AAA1">Aceptar <i class="fas fa-check-circle"></i></button>
-        <a href="/navegacion/users">
-        <button style="background-color: #0E7771">Cancelar <i class="fas fa-ban"></i></button>
-    </a>
-    </div>
+
+    <form action="/navegacion/users/signIn" method="POST" autocomplete="off">
+
+        <p>
+            <label>Nombre de usuario: </label><br>
+            <input name="username" id="username" type="text" required>
+        </p>
+
+        <p>
+            <label>Contraseña: </label><br>
+            <input name="password" id="password" type="password" required>
+        </p>
+
+        <p class="div1">
+            
+            <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
+
+            <a href="/navegacion/users">
+                <button style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
+            </a>
+        </p>
+    </form>
+
 </section>
 
 {{> footer}}

@@ -1,7 +1,4 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-
 <link rel="stylesheet" href="/css/newPass.css">
-
 
 <!-- Para reutilizar codigo de la cabecera y navegacion -->
 {{> cabecera}}
@@ -11,19 +8,19 @@
     <form action="/navegacion/users/newPass/{{username}}" method="POST" autocomplete="off">
 
         <div class="container">
-            <h1 style="text-align: center; margin-top: 2%">ACTUALIZACION DE CONTRASEÑA</h1>
+
+            <h1 >ACTUALIZACION DE CONTRASEÑA</h1>
             
             <div class="container ">
-
-                <p class="text-center" style="margin-top: 3%">
+                <p class="text-center" >
                     <label>Nueva contraseña:</label> <br>
                     <input type="password" name="password" id="password1" placeholder=" contraseña" required></br>
                 </p>
-
-                <p class="text-center">
-                    <button type="submit" button type="submit" class="btn btn-success " type="button">
-                        Actualizar</button>
+                <p class="text-center" >
+                    <label>Confirme la contraseña:</label> <br>
+                    <input type="password" name="password" id="password1" placeholder=" contraseña" required></br>
                 </p>
+                <button type="submit">Actualizar <i class="fas fa-recycle"></i></button>
             </div>
         </div>
     </form>
