@@ -6,7 +6,7 @@ var pool = new db({
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1234',
+  password: '1',
   port: 5432
 })
 
@@ -124,6 +124,10 @@ module.exports = {
       var { password } = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(password, salt);
+      
+      console.log(username);
+      console.log(password); 
+      console.log(contrasenia); 
 
       await pool.query('UPDATE login set contrasenia=$2 where id_usuario=$1', [username, contrasenia],
         (error, results) => {
@@ -133,7 +137,7 @@ module.exports = {
             errorUser.push(true);
             exitoUser = [];
             res.redirect('/navegacion/users');
-            throw error;
+            
           } else {
 
             exitoUser.push(true);
@@ -155,15 +159,16 @@ module.exports = {
       var { username, password } = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(req.body.password, salt);
-
-      await pool.query('INSERT INTO login VALUES ($1, $2)', [req.body.username, contrasenia], (error, results) => {
+      console.log(username);
+      console.log(password); 
+      console.log(contrasenia); 
+      await pool.query('INSERT INTO login VALUES ($1, $2)', [username, contrasenia], (error, results) => {
 
         if (error) {
 
           errorUser.push(true);
           exitoUser = [];
           res.redirect('/navegacion/users');
-          throw error
         } else {
 
           exitoUser.push(true);

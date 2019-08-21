@@ -78,3 +78,16 @@ th {
     height: 30px;
     border: grey 0.5px solid;
 }
+
+.table-menu{
+    overflow: scroll; 
+    height: 100px; 
+    margin-left: 20px; 
+    margin-right: 20px
+}
+
+.button-guarda{
+    align-content: center; 
+    margin-top: 15px; 
+    margin-bottom: 15px;
+}

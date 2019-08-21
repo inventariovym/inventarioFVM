@@ -4,4 +4,14 @@
     margin-right: 0px;
     margin-bottom: 0%;
     height: auto;
+} 
+
+h1{
+    text-align: center; 
+    margin-top: 2%; 
+    color: white; 
+}
+
+p{
+    margin-top: 3%; 
 }
