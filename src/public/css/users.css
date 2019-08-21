@@ -52,6 +52,8 @@ a {
     text-decoration: none;
     cursor: pointer;
     background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
 }
 
 h1 {
