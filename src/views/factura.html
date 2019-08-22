@@ -6,49 +6,55 @@
 
 <section class="contenido" style="overflow: hidden">
     <div class="centrar">
-        <h2>Detalles de la compra</h2>
+        <h1>Detalles de la compra</h1>
     </div>
 
     <div>
-        <form>
-            <div>
-                <p>
-                    <label>Producto:</label> <br>
-                    <input id="producto" class="form-control" type="text" placeholder="producto..." required><br>
-                </p>
-                <p>
-                    <label>Cantidad:</label> <br>
-                    <input id="cantidad" class="form-control" type="text" placeholder="cantidad..." required><br>
-                </p>
-                <p>
-                    <label>Valor:</label> <br>
-                    <input id="valor" class="form-control" type="text" placeholder="valor..." required> <br>
-                </p>
-                <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura</button>
+            <div id="left">
+                <form>
+                    <div style="font-family: 'Calibri'">
+                        <div style="margin-left: 15px; margin-bottom: 15px">
+                            <label>Fecha:</label><br>
+                            <input id="fecha" type="date" placeholder="fecha..." required><br>
+                        </div>
+                        <div style="margin-left: 15px; margin-bottom: 15px">
+                            <label>Proveedor:</label><br>
+                            <input id="proveedor" type="search" placeholder="proveedor..." required><br>
+                        </div>
+                        <div style="margin-left: 15px; margin-bottom: 15px">
+                            <label>Producto:</label><br>
+                            <input id="producto" type="search" placeholder="producto..." required><br>
+                        </div>
+                        <div style="margin-left: 15px; margin-bottom: 15px"">
+                            <label>Cantidad:</label><br>
+                            <input id="cantidad" type="text" placeholder="cantidad..." required><br>
+                        </div>
+                        <div style="margin-left: 15px; margin-bottom: 15px"">
+                            <label>Valor:</label><br>
+                            <input id="valor" type="text" placeholder="valor..." required> <br>
+                        </div>
+                        <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-chevron-circle-right"></i></button>
+                    </div>
+                </form>
             </div>
-        </form>
-
-        <div class="centrar">
-            <h2>Facturación</h2>
-        </div>
-        <div id="adicionados"></div>
-
-        <div class="table-menu" >
-            
-            <table id="mytable" class="table">
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Valor</th>
-                    <th>Eliminar</th>
-                </tr>
-            </table>
-        </div>
-
-        <div class="button-guarda" >
-                <button id="#" type="submit" class="botones-factura">Guardar factura</button>
-        </div>
-        
+                
+            <div id="right">
+                    <div id="adicionados"></div>
+                    <div class="table-menu" >
+                            <table id="mytable" class="table">
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Valor</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </table>
+                        </div>
+                
+                        <div class="button-guarda" >
+                                <button id="#" type="submit" class="botones-factura">Guardar factura <i class="fas fa-save"></i></button>
+                        </div>
+            </div> 
     </div>
 </section>
 
@@ -74,7 +80,7 @@
                 i++;
 
                 $('#mytable tr:first').after(fila);
-                $("#adicionados").text(""); //limpia el div adicioandos para que no se vayan acumulando
+                $("#adicionados").text("Cantidad de productos adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
 
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
@@ -95,7 +101,7 @@
             //cuando da click obtenemos el id del boton
             $('#row' + button_id + '').remove(); //borra la fila
             //limpia el div para que vuelva a contar las filas de la tabla
-            $("#adicionados").text("");
+            $("#adicionados").text("Cantidad de productos adicionados: ");
             var nFilas = $("#mytable tr").length;
             $("#adicionados").append(nFilas - 1);
         });
