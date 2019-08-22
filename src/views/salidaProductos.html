@@ -1,6 +1,89 @@
-
+<link rel="stylesheet" href="/css/salidaProductos.css">
 {{> cabecera}}
 {{> navegacion}}
 
+<section class="contenido">
+    <div>
+        <h1>Procedimiento para realizar ensamblaje de plato</h1>
+    </div>
+    <div>
+        <p>
+            <label>Fecha de preparación: </label>
+            <input type="date">
+        </p>
+        <p>
+            <label>Seleccione el menú a preparar: </label>
+            <select name="comidas">
+                <option value="volvo">Frijoles con garra</option>
+                <option value="saab">Pasta de fideo fino</option>
+                <option value="fiat">Lentejas</option>
+                <option value="audi">Lechona</option>
+            </select>
+        </p>
+        <p>
+            <label>Ingrese la cantidad de personas a servir: </label>
+            <input type="text" id="cantPersonas">
+        </p>
+        <div>
+            <button id="adicionar">Adicionar ingredientes</button>
+        </div>
+        <div class="tabla-ingredientes">
+            <table id="mytable">
+               <tr>
+                    <th>Ingrediente</th>
+                    <th>Cantidad</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <button>Aceptar</button>
+        <button>Cancelar</button>
+    </div>
+</section>
 
 {{> footer}}
+
+<script>
+
+        $(document).ready(function () {
+            //obtenemos el valor de los input
+            $('#adicionar').click(function () {
+    
+                if (document.getElementById("ingrediente").value != "" && document.getElementById("cantidad").value != "") {
+                        
+                    var producto = document.getElementById("ingrediente").value;
+                    var cantidad = document.getElementById("cantidad").value;
+                    var i = 1; //contador para asignar id al boton que borrara la fila
+    
+                    //esto seria lo que contendria la fila
+                    var fila = '<tr id="row' + i + '"><td>' + producto + '</td><td>' + cantidad + '</td><td>' + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
+                    i++;
+    
+                    $('#mytable tr:first').after(fila);
+                    $("#adicionados").text("Cantidad de ingredientes adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
+    
+                    var nFilas = $("#mytable tr").length;
+                    $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
+    
+    
+                    document.getElementById("cantidad").value = "";
+                    document.getElementById("ingrediente").value = "";
+                    document.getElementById("ingrediente").focus();
+    
+                }
+    
+            });
+    
+            $(document).on('click', '.button-delete', function () {
+    
+                var button_id = $(this).attr("id");
+                //cuando da click obtenemos el id del boton
+                $('#row' + button_id + '').remove(); //borra la fila
+                //limpia el div para que vuelva a contar las filas de la tabla
+                $("#adicionados").text("Cantidad de productos adicionados: ");
+                var nFilas = $("#mytable tr").length;
+                $("#adicionados").append(nFilas - 1);
+            });
+        });
+    </script>
