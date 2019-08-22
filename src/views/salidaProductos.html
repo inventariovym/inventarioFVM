@@ -7,11 +7,9 @@
         <h1>Procedimiento para realizar ensamblaje de plato</h1>
     </div>
     <div>
-        <p>
+        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
             <label>Fecha de preparación: </label>
             <input type="date">
-        </p>
-        <p>
             <label>Seleccione el menú a preparar: </label>
             <select name="comidas">
                 <option value="volvo">Frijoles con garra</option>
@@ -19,15 +17,13 @@
                 <option value="fiat">Lentejas</option>
                 <option value="audi">Lechona</option>
             </select>
-        </p>
-        <p>
+        </div>
+        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
             <label>Ingrese la cantidad de personas a servir: </label>
             <input type="number" id="cantPersonas">
-        </p>
-        <div style="margin-left: 20px">
             <button id="adicionar" style="background-color: #0E7771">Adicionar ingredientes <i class="fas fa-chevron-circle-right"></i></button>
         </div>
-        <div class="tabla-ingredientes">
+        <div style="overflow: scroll; max-height: 400px; width: 90%; margin: 0 auto">
             <table id="mytable">
                <tr>
                     <th>Ingrediente</th>
@@ -36,7 +32,7 @@
             </table>
         </div>
     </div>
-    <div style="margin-left: 20px">
+    <div style="margin-left: 20px; margin-top: 20px">
         <button style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
         <button style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
     </div>
