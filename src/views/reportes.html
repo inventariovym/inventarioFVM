@@ -1,7 +1,114 @@
-
+<link rel="stylesheet" href="/css/reportes.css">
 
 {{> cabecera}}
 {{> navegacion}}
 
+<section style="margin-left: 230px">
+    <h1>Reporte de ensamblaje de platos por mes y año</h1>
+    <div style="margin-top: 0%">
+            <div div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+                    <label>Selecciona un mes: </label>
+                    <select>
+                        <option>Enero</option>
+                        <option>Febrero</option>
+                        <option>Marzo</option>
+                        <option>Abril</option>
+                        <option>Mayo</option>
+                        <option>Junio</option>
+                        <option>Julio</option>
+                        <option>Agosto</option>
+                        <option>Septiembre</option>
+                        <option>Octubre</option>
+                        <option>Noviembre</option>
+                        <option>Diciembre</option>
+                    </select>
+                    <label style="margin-left: 15px">Ingresa un año: </label>
+                    <input type="number" min="2000" max="2030">
+                    <button id="filtrar" class="boton-buscar" style="background-color: #0E7771">Filtrar <i class="fas fa-search"></i></button>
+                </div>
+                <div style="overflow: scroll; max-height: 400px">
+                        <table>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Plato</th>
+                                    <th>Cantidad Personas</th>
+                                    <th>Visualizar ingredientes</th>
+                                </tr>
+                                <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>22/08/2019</td>
+                                    <td>Frijoles con garra</td>
+                                    <td>120</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>21/08/2019</td>
+                                    <td>Sopa de fideo fino</td>
+                                    <td>100</td>
+                                    <td><button class="button-visualizar"><i class="far fa-eye"></i></button></td>
+                            </tr>
+                    </table>
+                </div>
+    </div>
+</section>
 
 {{> footer}}

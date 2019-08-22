@@ -38,13 +38,9 @@ table tr:nth-child(odd) {
     background-color: #D2DAD9;
 }
 
-.div1 {
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
 button {
     margin: 0 auto;
+    margin-left: 20px;
     height: 35px;
     width: 150px;
     border-style: none;

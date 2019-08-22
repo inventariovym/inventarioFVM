@@ -19,7 +19,7 @@ p {
 button {
     margin: 0 auto;
     height: 35px;
-    width: 150px;
+    width: 200px;
     border-style: none;
     border-radius: 5px;
     color: white;
@@ -28,9 +28,10 @@ button {
 
 input {
     font-size: 15px;
+    font-family: 'Calibri';
     border-radius: 2px;
     border: 1px solid #39c;
-    height: 35px;
+    height: 25px;
     width: 300px;
     margin-left: 2%;
     margin-right: 2%;
@@ -42,8 +43,10 @@ table tr:nth-child(odd) {
 
 .tabla-ingredientes {
     margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     overflow: scroll;  
-    height: 280px;
+    height: 200px;
     width: 500px;
 }
 
@@ -68,14 +71,15 @@ th {
 
 select {
  font-family: 'Calibri';
- font-size: 18px;
+ font-size: 15px;
  font-weight: 400;
  color: black;
- height: 35px;
+ height: 25px;
     width: 300px;
  max-width: 100%; 
  box-sizing: border-box;
  margin: 0;
+ margin-left: 2%;
  border: 1px solid #39c;
  box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
  border-radius: 2px;
@@ -88,8 +92,6 @@ select {
  background-repeat: no-repeat, repeat;
  background-position: right .7em top 50%, 0 0;
  background-size: .65em auto, 100%;
-}
-
 }
 
 select:hover {
