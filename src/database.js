@@ -6,7 +6,7 @@ var pool = new db({
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1234',
+  password: '1',
   port: 5432
 })
 
@@ -114,21 +114,16 @@ module.exports = {
   },
 
 
-
   postActualizarPass: async function (req, res) { //ACTUALIZAR CONTRASEÑA
     exitoUser = []; errorUser = [];
 
     if (req.session.username) {
 
       var username = req.params.id;
-      var { password } = req.body;
+      var {password, confirmar} = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(password, salt);
       
-      console.log(username);
-      console.log(password); 
-      console.log(contrasenia); 
-
       await pool.query('UPDATE login set contrasenia=$2 where id_usuario=$1', [username, contrasenia],
         (error, results) => {
 
@@ -159,9 +154,7 @@ module.exports = {
       var { username, password } = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(req.body.password, salt);
-      console.log(username);
-      console.log(password); 
-      console.log(contrasenia); 
+      
       await pool.query('INSERT INTO login VALUES ($1, $2)', [username, contrasenia], (error, results) => {
 
         if (error) {

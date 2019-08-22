@@ -101,7 +101,7 @@ h2 {
 .table-menu{
     overflow: scroll; 
     height: 315px; 
-    width: 600px;
+    width: 300%;
     margin-left: 20px; 
     margin-right: 20px
 }

@@ -5,25 +5,32 @@
 {{> navegacion}}
 
 <section class="contenido">
-    <form action="/navegacion/users/newPass/{{username}}" method="POST" autocomplete="off">
 
-        <div class="container">
+    <div class="container">
+        <h1>ACTUALIZACION DE CONTRASEÑA</h1>
 
-            <h1 >ACTUALIZACION DE CONTRASEÑA</h1>
-            
-            <div class="container ">
-                <p class="text-center" >
-                    <label>Nueva contraseña:</label> <br>
-                    <input type="password" name="password" id="password1" placeholder=" contraseña" required></br>
+        <div class="container ">
+            <form action="/navegacion/users/newPass/{{username}}" method="POST" autocomplete="off">
+
+                <p class="text-center">
+                    <label>Nueva contraseña:</label>
                 </p>
-                <p class="text-center" >
-                    <label>Confirme la contraseña:</label> <br>
-                    <input type="password" name="password" id="password1" placeholder=" contraseña" required></br>
+                <input type="password" name="password" id="password" placeholder=" contraseña" required>
+
+                <p class="text-center">
+                    <label>Confirme la contraseña:</label>
                 </p>
-                <button type="submit">Actualizar <i class="fas fa-recycle"></i></button>
-            </div>
+                
+                <input type="password" name="confirmar" id="confirmar" placeholder=" contraseña" required> 
+                
+                <div>
+                    </br>
+                    <button type="submit">Actualizar <i class="fas fa-recycle"></i></button>
+                </div>
+
+            </form>
         </div>
-    </form>
+    </div>
 </section>
 
 {{>footer}}
