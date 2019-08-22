@@ -10,12 +10,6 @@ h1 {
     color: black;
 }
 
-p {
-    margin-left: 20px;
-    font-family: 'Calibri';
-    font-size: 18px;
-}
-
 button {
     margin: 0 auto;
     height: 35px;
@@ -24,6 +18,11 @@ button {
     border-radius: 5px;
     color: white;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #021C1E;
+    color: white;
 }
 
 input {

@@ -60,6 +60,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #021C1E;
+    color: white;
+}
+
 label {
     font-family: 'Calibri';
     margin-left: 20px;

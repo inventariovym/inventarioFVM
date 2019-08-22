@@ -10,51 +10,38 @@
     </div>
 
     <div>
-            <div id="left">
-                <form>
-                    <div style="font-family: 'Calibri'">
-                        <div style="margin-left: 15px; margin-bottom: 15px">
-                            <label>Fecha:</label><br>
-                            <input id="fecha" type="date" placeholder="fecha..." required><br>
-                        </div>
-                        <div style="margin-left: 15px; margin-bottom: 15px">
-                            <label>Proveedor:</label><br>
-                            <input id="proveedor" type="search" placeholder="proveedor..." required><br>
-                        </div>
-                        <div style="margin-left: 15px; margin-bottom: 15px">
-                            <label>Producto:</label><br>
-                            <input id="producto" type="search" placeholder="producto..." required><br>
-                        </div>
-                        <div style="margin-left: 15px; margin-bottom: 15px"">
-                            <label>Cantidad:</label><br>
-                            <input id="cantidad" type="number" placeholder="cantidad..." required><br>
-                        </div>
-                        <div style="margin-left: 15px; margin-bottom: 15px"">
-                            <label>Valor:</label><br>
-                            <input id="valor" type="number" placeholder="valor..." required> <br>
-                        </div>
-                        <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-chevron-circle-right"></i></button>
-                    </div>
-                </form>
-            </div>
-                
-            <div id="right">
-                    <div id="adicionados"></div>
-                    <div class="table-menu" >
-                            <table id="mytable" class="table">
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Valor</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                            </table>
-                        </div>
-                
-                        <div class="button-guarda" >
-                                <button id="#" type="submit" class="botones-factura">Guardar factura <i class="fas fa-save"></i></button>
-                        </div>
-            </div> 
+        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+            <label>Fecha: </label>
+            <input type="date">
+            <label>Proveedor: </label>
+            <input type="search">
+            <label>Producto: </label>
+            <input type="text" id="producto">
+        </div>
+        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+            <label>Cantidad: </label>
+            <input type="number" id="cantidad">
+            <label>Valor: </label>
+            <input id="valor" type="number" placeholder="valor..." required>
+            <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-chevron-circle-right"></i></button>
+        </div>
+        <div>
+            <h1>Facturación de productos</h1>
+        </div>
+        <div style="overflow: scroll; max-height: 250px; width: 90%; margin: 0 auto">
+            <div id="adicionados"></div>
+            <table id="mytable">
+               <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Valor</th>
+                <th>Eliminar</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="button-guarda" >
+        <button id="#" type="submit" class="botones-factura">Guardar factura <i class="fas fa-save"></i></button>
     </div>
 </section>
 
