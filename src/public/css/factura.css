@@ -1,3 +1,50 @@
+main {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 10% 18% 10% 18% 10% 18%;
+  grid-template-rows: 30px 30px;
+  margin-left: 20px;
+}
+
+.ventana_flotante {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid grey;
+    border-radius: 6px 6px 6px 6px;
+    left: auto;
+    margin-top: 35px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 10px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 380px;
+    height: 320px;
+    z-index: 15;
+}
+
+.popupCloseButton {
+    background-color: red;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'calibri';
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.popupCloseButton:hover {
+    background-color: #9D0202;
+}
+
 .contenido {
     margin-left: 230px;
     margin-top: 0px;
@@ -25,6 +72,16 @@ p {
     font-size: 15px;
     outline: none;
     cursor: pointer;
+}
+
+.boton-aceptar-cancelar {
+    height: 40px; 
+    width: 100px; 
+    cursor: pointer;
+    border-style: none;
+    color: white;
+    font-family: 'Calibri';
+    border-radius: 5px;
 }
 
 button:hover {
@@ -123,7 +180,7 @@ input {
     border-radius: 2px;
     border: 1px solid #39c;
     height: 25px;
-    width: 150px;
+    width: 170px;
     margin-left: 2%;
     margin-right: 2%;
 }
