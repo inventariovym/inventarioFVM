@@ -8,6 +8,7 @@
     <div class="centrar">
         <h1>Detalles de la compra</h1>
     </div>
+<<<<<<< HEAD
 
     <div>
         <div class="menu1" >
@@ -24,6 +25,22 @@
             <label>Valor: </label>
             <input id="valor" type="number" placeholder="valor..." required>
             <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-chevron-circle-right"></i></button>
+=======
+    <main style="font-family: 'Calibri'; margin-bottom: 10px">
+        <div><label>Fecha: </label></div>
+        <div><input type="date"></div>
+        <div><label>Proveedor: </label></div>
+        <div><input type="search" placeholder="proveedor..." required></div>
+        <div><label>Producto: </label></div>
+        <div><input type="text" id="producto" placeholder="producto..." required></div>
+        <div><label>Cantidad: </label></div>
+        <div><input type="number" id="cantidad" placeholder="cantidad..." required></div>
+        <div><label>Valor: </label></div>
+        <div><input id="valor" type="number" placeholder="valor..." required></div>
+      </main>
+      <div>
+          <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-plus-circle"></i></button>
+>>>>>>> origin
         </div>
         <div>
             <h1>Facturación de productos</h1>
@@ -92,6 +109,18 @@
             $("#adicionados").text("Cantidad de productos adicionados: ");
             var nFilas = $("#mytable tr").length;
             $("#adicionados").append(nFilas - 1);
-        });
+        }); 
+
+        function alerta() {
+            var mensaje;
+            var opcion = confirm("Clicka en Aceptar o Cancelar");
+            if (opcion == true) {
+                mensaje = "Has clickado OK";
+	        } else {
+	            mensaje = "Has clickado Cancelar";
+	        }
+	    document.getElementById("ejemplo").innerHTML = mensaje;
+}
+
     });
 </script>

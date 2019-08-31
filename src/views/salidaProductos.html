@@ -6,11 +6,11 @@
     <div>
         <h1>Procedimiento para realizar ensamblaje de plato</h1>
     </div>
-    <div>
-        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
-            <label>Fecha de preparación: </label>
-            <input type="date">
-            <label>Seleccione el menú a preparar: </label>
+    <main style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+        <div><label>Fecha de preparación: </label></div>
+        <div><input type="date"></div>
+        <div><label>Seleccione el menú a preparar: </label></div>
+        <div>
             <select name="comidas">
                 <option value="volvo">Frijoles con garra</option>
                 <option value="saab">Pasta de fideo fino</option>
@@ -18,11 +18,12 @@
                 <option value="audi">Lechona</option>
             </select>
         </div>
-        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
-            <label>Ingrese la cantidad de personas a servir: </label>
-            <input type="number" id="cantPersonas">
-            <button id="adicionar" style="background-color: #0E7771">Adicionar ingredientes <i class="fas fa-chevron-circle-right"></i></button>
-        </div>
+        <div><label>Ingrese la cantidad de personas a servir: </label></div>
+        <div><input type="number" id="cantPersonas" placeholder="cantidad..." required></div>
+    </main>
+    <div style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px">
+        <button id="adicionar" style="background-color: #0E7771">Adicionar ingredientes <i class="fas fa-plus-circle"></i></button>
+    </div>
         <div style="overflow: scroll; max-height: 400px; width: 90%; margin: 0 auto">
             <table id="mytable">
                <tr>

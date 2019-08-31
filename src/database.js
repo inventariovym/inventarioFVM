@@ -33,6 +33,16 @@ module.exports = {
     }
   },
 
+  getNuevoProveedor: function (req, res) { //NUEVO PROVEEDOR
+    if (req.session.username) {
+
+      res.render('nuevoProveedor.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
+
   getProducto:  function (req, res) { //PRODUCTOS
     if (req.session.username) {
 

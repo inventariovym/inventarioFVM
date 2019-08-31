@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/factura.css">
+
+<!-- Para reutilizar codigo de la cabecera y navegacion -->
+{{> cabecera}}
+{{> navegacion}}
+{{> factura}}
+
+<div style="text-align: center">
+        <div class="ventana_flotante" style="font-family: 'Calibri'">
+            <span class="helper"></span>
+            <div id="cancelar_proveedor" class="popupCloseButton">X</div>
+            <h1>Crear nuevo proveedor </h1>
+                <div style="margin-bottom: 15px"><label>NIT Empresa</label></div>
+                <div style="margin-bottom: 15px"><input id="nit_proveedor" type="number"></div>
+                <div style="margin-bottom: 15px"><label>Nombre Empresa</label></div>
+                <div style="margin-bottom: 15px"><input id="nombre_proveedor" type="text"></div>
+                <div>
+                    <button id="aceptar_proveedor" class="boton-aceptar-cancelar" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
+                    <button id="cancelar_proveedor" class="boton-aceptar-cancelar" style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
+                </div>
+        </div>
+    </div>
+
+{{> footer}}
