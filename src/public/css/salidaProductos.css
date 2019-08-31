@@ -13,7 +13,8 @@ h1 {
 button {
     margin: 0 auto;
     height: 35px;
-    width: 200px;
+    width: 180px;
+    border-bottom: none;
     border-style: none;
     border-radius: 5px;
     color: white;
@@ -53,6 +54,14 @@ table tr:nth-child(odd) {
     height: 200px;
     width: 500px;
 }
+
+main {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 25% 20% 20% 20%;
+    grid-template-rows: 30px 30px;
+    margin-left: 20px;
+  }
 
 th, td {
     width: 50%;
