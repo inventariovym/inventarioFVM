@@ -4,23 +4,23 @@
 {{> cabecera}}
 {{> navegacion}}
 
-<section class="contenido" style="overflow: hidden">
+<section class="contenido" >
     <div class="centrar">
         <h1>Detalles de la compra</h1>
     </div>
 
     <div>
-        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+        <div class="menu1" >
             <label>Fecha: </label>
             <input type="date">
-            <label>Proveedor: </label>
-            <input type="search">
+            <label>Nit Proveedor: </label>
+            <input type="search" autofocus required>
             <label>Producto: </label>
-            <input type="text" id="producto">
+            <input type="text" id="producto" required>
         </div>
-        <div style="font-family: 'Calibri'; margin-left: 20px; margin-bottom: 15px">
+        <div class="menu1" >
             <label>Cantidad: </label>
-            <input type="number" id="cantidad">
+            <input type="number" id="cantidad" required>
             <label>Valor: </label>
             <input id="valor" type="number" placeholder="valor..." required>
             <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-chevron-circle-right"></i></button>
@@ -28,7 +28,7 @@
         <div>
             <h1>Facturación de productos</h1>
         </div>
-        <div style="overflow: scroll; max-height: 250px; width: 90%; margin: 0 auto">
+        <div class="listaProducto" >
             <div id="adicionados"></div>
             <table id="mytable">
                <tr>
@@ -52,6 +52,7 @@
 
     $(document).ready(function () {
         //obtenemos el valor de los input
+         
         $('#adicionar').click(function () {
 
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
@@ -82,7 +83,7 @@
 
         });
 
-        $(document).on('click', '.button-delete', function () {
+        $(document).on('click', '.button-delete', function () { 
 
             var button_id = $(this).attr("id");
             //cuando da click obtenemos el id del boton

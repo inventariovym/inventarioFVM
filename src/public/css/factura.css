@@ -4,6 +4,7 @@
     margin-right: 0px;
     margin-bottom: 0%;
     height: auto;
+    overflow: hidden;    
 }
 
 p {
@@ -144,4 +145,17 @@ label {
     margin-left: 20px;
     font-family: 'Calibri';
     font-size: 18px;
+}
+
+.menu1{
+    font-family: 'Calibri'; 
+    margin-left: 20px; 
+    margin-bottom: 15px;
+}
+
+.listaProducto{
+    overflow: scroll; 
+    max-height: 250px; 
+    width: 90%; 
+    margin: 0 auto; 
 }
