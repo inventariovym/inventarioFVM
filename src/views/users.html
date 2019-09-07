@@ -7,7 +7,7 @@
     <div>
         <h1>Listado de usuarios</h1>
     </div>
-    <div style="width: 90%; margin: 0 auto">
+    <div id="cuadro" >
         <table>
             <tr>
                 <th>Usuario</th>
@@ -19,16 +19,16 @@
                 <td>{{id_usuario}} </td>
                 <td>
                     <a href="/navegacion/users/newPass/{{id_usuario}}">
-                        <button type="button" class="button-edit"><i class="fas fa-edit"
-                                style="color: white"></i></button>
+                        <button type="button" class="button-edit">
+                            <i class="fas fa-edit" style="color: white"></i></button>
                     </a>
                 </td>
                 
                 <td>
                     <a onclick="eliminar(this)" id={{id_usuario}}>
 
-                        <button type="button" style="color: white" class="button-delete"><i class="fas fa-trash"
-                                style="color: white"></i></button>
+                        <button type="button" style="color: white" class="button-delete">
+                            <i class="fas fa-trash"style="color: white"></i></button>
                     </a>
                 </td>
 
@@ -43,7 +43,7 @@
 
         <div>
             <a href="/navegacion/users/signIn">
-                <button type="submit" class="boton-nuevo" type="button">
+                <button type="submit" class="button-nuevo" type="button" >
                     Nuevo usuario <i class="fas fa-user-plus"></i>
                 </button>
             </a>
@@ -59,14 +59,15 @@
     function eliminar(val) {
 
         var texto1 = "<form method='POST' action='/navegacion/users/delUser/" + val.id +
-            "'> <h4>¿Esta seguro de eliminar este usuario? </h4><br /> " +
-            "<button type='submit'>Si</button></form>";
+            "'> <h3>¿Esta seguro de eliminar este usuario? </h3><br /> " +
+            "<button type='submit'>SI</button> <button id='selec' type='button' class='btn clear'>NO</button></form>";
 
         toastr.info(texto1, "Confirmacion",
             {
                 "closeButton": true,
                 "progressBar": true,
                 "positionClass": "toast-top-center",
+                "timeOut": "5000"
             });
     }
 

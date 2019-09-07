@@ -54,7 +54,7 @@ ALTER TABLE public.detalle OWNER TO postgres;
 CREATE TABLE public.factura (
     idfactura integer NOT NULL,
     nitp integer NOT NULL,
-    valortotal double precision NOT NULL,
+    valortotal money NOT NULL,
     fecharegistro date
 );
 
@@ -115,8 +115,8 @@ ALTER TABLE public.formula OWNER TO postgres;
 --
 
 CREATE TABLE public.login (
-    id_usuario character varying NOT NULL,
-    contrasenia character varying
+    id_usuario character varying(50) NOT NULL,
+    contrasenia character varying(70)
 );
 
 
@@ -350,8 +350,8 @@ COPY public.formula (cantnece, medida, codigoprod, codigoplato) FROM stdin;
 --
 
 COPY public.login (id_usuario, contrasenia) FROM stdin;
-vym	$2a$10$x5b4gepCoI4E.1LliyS0vucBNO6Row.bE1f9hcdjxgDHCIrVFoXkS
 VYM	$2a$10$/DpTVTvMjS0eB.Zq4xyBWuYpyV.ZesBfs8SUZhB0SY3f4yjBm.sb6
+vym	$2a$10$IAFtlk3seukxGAnenNrLeOVQNwmQkQFc3OpACwlMiJFNASu2csZ6u
 \.
 
 
@@ -382,6 +382,10 @@ SELECT pg_catalog.setval('public.plato_id', 1000, false);
 --
 
 COPY public.producto (codigoprod, nombreprod, medida, cantidadtot) FROM stdin;
+1000	aceite	ml	3000
+1001	huevo	und	60
+1003	sal	g	500
+1004	azucar	g	500
 \.
 
 

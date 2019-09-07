@@ -6,14 +6,21 @@
     height: auto;
 }
 
-h3 {
+h1 {
     text-align: center;
     font-family: 'Calibri';
     font-size: 30px;
+    background-color: white;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Calibri';
+    font-size: 20px;
     margin-top: 50px;
     cursor: default;
 }
-
 table {
     width: 95%;
     margin: 0 auto;
@@ -48,24 +55,7 @@ a {
     color: white;
 }
 
-
-.boton-opciones {
-    border-style: none;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: transparent;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
-}
-h1 {
-    text-align: center;
-    font-family: 'Calibri';
-    font-size: 30px;
-    background-color: white;
-    color: black;
-}
-
-.boton-nuevo {
+.button-nuevo {
     margin: 0 auto;
     margin-top: 15px;
     margin-left: 15px;
@@ -86,7 +76,6 @@ h1 {
     border-style: none;
     width: 30px;
     height: 30px;
-    font-family: 'Calibri';
     font-size: 15px;
     outline: none;
     cursor: pointer;
@@ -99,8 +88,13 @@ h1 {
     border-style: none;
     width: 30px;
     height: 30px;
-    font-family: 'Calibri';
     font-size: 15px;
     outline: none;
     cursor: pointer;
 }
+
+#cuadro{
+    width: 90%; 
+    margin: 0 auto;
+}
+

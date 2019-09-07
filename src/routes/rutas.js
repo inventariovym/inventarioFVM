@@ -32,12 +32,12 @@ ruta.get('/navegacion/logout', (req, res) => { //Cerrar sesion
 //PRIMARIOS
 
 ruta.get('/navegacion', db.getMenu); //Navegacion
-ruta.get('/navegacion/compra', db.getCompra); //Compras
 ruta.get('/navegacion/producto', db.getProducto); //Productos
+ruta.get('/navegacion/compra', db.getCompra); //Compras
 ruta.get('/navegacion/salidaProducto', db.getSalidaProduc); //Salida Productos
 ruta.get('/navegacion/reportes', db.getReporte); //Reportes
 ruta.get('/navegacion/users', db.getUser); //Administrar Accesos
-ruta.get('/navegacion/nuevoProveedor', db.getNuevoProveedor); //Nuevo proveedor
+
 
 //SECUNDARIOS
 ruta.get('/navegacion/users/signIn', db.getNewUser);

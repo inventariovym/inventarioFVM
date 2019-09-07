@@ -26,6 +26,7 @@ th, td {
     width: 25%;
     font-family: 'Calibri';
     border: solid 0.8px grey;
+    text-align: center; 
     border-spacing: 0%;
     border-bottom: 0px;
     border-top: 0px;
@@ -79,4 +80,11 @@ input {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.datos{
+    overflow: scroll; 
+    max-height: 250px; 
+    width: 90%; 
+    margin: 0 auto; 
 }

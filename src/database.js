@@ -6,7 +6,7 @@ var pool = new db({
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1234',
+  password: '1',
   port: 5432
 })
 
@@ -33,27 +33,20 @@ module.exports = {
     }
   },
 
-  getNuevoProveedor: function (req, res) { //NUEVO PROVEEDOR
+
+  getProducto: async function (req, res) { //PRODUCTOS
     if (req.session.username) {
+      await pool.query('SELECT * FROM producto', function (err, resultado, fields) {
+        var producto = resultado.rows;
+        res.render('productos.html', { producto });
 
-      res.render('nuevoProveedor.html');
-
+      });
     } else {
       res.redirect('/');
     }
   },
 
-  getProducto:  function (req, res) { //PRODUCTOS
-    if (req.session.username) {
-
-      res.render('productos.html');
-
-    } else {
-      res.redirect('/');
-    }
-  },
-
-  getSalidaProduc:  function (req, res) { //SALIDA PRODUCTOS
+  getSalidaProduc: function (req, res) { //SALIDA PRODUCTOS
     if (req.session.username) {
 
       res.render('salidaProductos.html');
@@ -73,7 +66,7 @@ module.exports = {
     }
   },
 
-  getUser: async  function (req, res) { //ADMINISTRAR ACCESOS
+  getUser: async function (req, res) { //ADMINISTRAR ACCESOS
     if (req.session.username) {
 
       await pool.query('SELECT * FROM login', function (err, resultado, fields) {
@@ -88,11 +81,11 @@ module.exports = {
       res.redirect('/');
     }
   },
-   
-  getNewUser:  function (req, res) { //Registrar Usuario
+
+  getNewUser: function (req, res) { //Registrar Usuario
 
     if (req.session.username) {
-       res.render('newUser.html');
+      res.render('newUser.html');
     } else {
       res.redirect('/');
     }
@@ -130,10 +123,10 @@ module.exports = {
     if (req.session.username) {
 
       var username = req.params.id;
-      var {password, confirmar} = req.body;
+      var { password, confirmar } = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(password, salt);
-      
+
       await pool.query('UPDATE login set contrasenia=$2 where id_usuario=$1', [username, contrasenia],
         (error, results) => {
 
@@ -142,7 +135,7 @@ module.exports = {
             errorUser.push(true);
             exitoUser = [];
             res.redirect('/navegacion/users');
-            
+
           } else {
 
             exitoUser.push(true);
@@ -164,7 +157,7 @@ module.exports = {
       var { username, password } = req.body;
       var salt = encrip.genSaltSync(10);
       var contrasenia = encrip.hashSync(req.body.password, salt);
-      
+
       await pool.query('INSERT INTO login VALUES ($1, $2)', [username, contrasenia], (error, results) => {
 
         if (error) {

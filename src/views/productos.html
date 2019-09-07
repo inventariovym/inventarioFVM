@@ -10,34 +10,26 @@
         <table>
             <tr>
                 <th>Código</th>
-                <th>Medida</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
+                <th>Medida</th>
             </tr>
-            <tr><td>001</td><td>Lb</td><td>papa</td><td>20</td></tr>
-            <tr><td>002</td><td>Lb</td><td>arroz</td><td>35</td></tr>
-            <tr><td>003</td><td>Lb</td><td>yuca</td><td>42</td></tr>
-            <tr><td>004</td><td>Ml</td><td>aceite</td><td>20</td></tr>
-            <tr><td>005</td><td>Lb</td><td>limon</td><td>35</td></tr>
-            <tr><td>006</td><td>Lb</td><td>tomate</td><td>42</td></tr>
-            <tr><td>007</td><td>Lb</td><td>cebolla</td><td>20</td></tr>
-            <tr><td>008</td><td>Lb</td><td>ajo</td><td>35</td></tr>
-            <tr><td>009</td><td>Lb</td><td>frijol</td><td>42</td></tr>
-            <tr><td>011</td><td>Lb</td><td>arveja</td><td>20</td></tr>
-            <tr><td>012</td><td>Lb</td><td>blanquillo</td><td>35</td></tr>
-            <tr><td>013</td><td>Lb</td><td>azucar</td><td>42</td></tr>
-            <tr><td>001</td><td>Lb</td><td>papa</td><td>20</td></tr>
-            <tr><td>002</td><td>Lb</td><td>arroz</td><td>35</td></tr>
-            <tr><td>003</td><td>Lb</td><td>yuca</td><td>42</td></tr>
-            <tr><td>004</td><td>Ml</td><td>aceite</td><td>20</td></tr>
-            <tr><td>005</td><td>Lb</td><td>limon</td><td>35</td></tr>
-            <tr><td>006</td><td>Lb</td><td>tomate</td><td>42</td></tr>
-            <tr><td>007</td><td>Lb</td><td>cebolla</td><td>20</td></tr>
-            <tr><td>008</td><td>Lb</td><td>ajo</td><td>35</td></tr>
-            <tr><td>009</td><td>Lb</td><td>frijol</td><td>42</td></tr>
-            <tr><td>011</td><td>Lb</td><td>arveja</td><td>20</td></tr>
-            <tr><td>012</td><td>Lb</td><td>blanquillo</td><td>35</td></tr>
-            <tr><td>013</td><td>Lb</td><td>azucar</td><td>42</td></tr>
+            {{#each producto }}
+            <tr>
+                <td>{{codigoprod}}</td>
+                <td>{{nombreprod}}</td>
+                <td>{{cantidadtot}}</td>
+                <td>{{medida}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {{/each}}
+
         </table>
     </div>
     <div class="div1">
