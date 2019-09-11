@@ -67,6 +67,7 @@ input {
     margin-right: 2%;
 }
 
+<<<<<<< HEAD
 main {
     display: grid;
     grid-gap: 1rem;
@@ -76,3 +77,16 @@ main {
     margin-right: 24%;
     margin-top: 20px;
   }
+=======
+p {
+    margin-top: 3px;
+}
+
+form{
+    text-align: center;
+}
+
+#div1{
+    display: inline-block;
+}
+>>>>>>> 7cd975a58408c879ab9e57da051b0d93979e1b78

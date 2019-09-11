@@ -59,7 +59,7 @@
     function eliminar(val) {
 
         var texto1 = "<form method='POST' action='/navegacion/users/delUser/" + val.id +
-            "'> <h3>¿Esta seguro de eliminar este usuario? </h3><br /> " +
+            "'> <h4>¿Esta seguro de eliminar este usuario? </h4><hr> " +
             "<button type='submit'>SI</button> <button id='selec' type='button' class='btn clear'>NO</button></form>";
 
         toastr.info(texto1, "Confirmacion",

@@ -71,6 +71,7 @@ input {
     border: 1px solid #39c;
     height: 30px;
     width: 320px;
+<<<<<<< HEAD
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 15px;
@@ -85,3 +86,20 @@ main {
     margin-right: 24%;
     margin-top: 20px;
   }
+=======
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+p {
+    margin-top: 3px;
+}
+
+form{
+    text-align: center;
+}
+
+#div1{
+    display: inline-block;
+}
+>>>>>>> 7cd975a58408c879ab9e57da051b0d93979e1b78

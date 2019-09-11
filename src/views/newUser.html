@@ -7,6 +7,7 @@
     <div>
         <h1>Creación de usuario nuevo</h1>
     </div>
+<<<<<<< HEAD
     <div>
         <form action="/navegacion/users/signIn" method="POST" autocomplete="off">
             <main>
@@ -24,6 +25,32 @@
             </div>
         </form>
     </div>
+=======
+
+    <form action="/navegacion/users/signIn" method="POST" autocomplete="off">
+
+        <p>
+            <label>Nombre de usuario: </label><br>
+            <input name="username" id="username" type="text" required>
+        </p>
+
+        <p>
+            <label>Contraseña: </label><br>
+            <input name="password" id="password" type="password" required>
+        </p>
+
+        <p class="div1">
+
+            <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
+
+            <a href="/navegacion/users">
+                <button type="button" style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
+            </a>
+        </p>
+    </form>
+
+
+>>>>>>> 7cd975a58408c879ab9e57da051b0d93979e1b78
 </section>
 
 {{> footer}}
