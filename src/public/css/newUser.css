@@ -69,3 +69,11 @@ input {
 p {
     margin-top: 3px;
 }
+
+form{
+    text-align: center;
+}
+
+#div1{
+    display: inline-block;
+}

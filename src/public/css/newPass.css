@@ -66,11 +66,19 @@ input {
     border-radius: 2px;
     border: 1px solid #39c;
     height: 30px;
-    width: 90%;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 320px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 p {
     margin-top: 3px;
+}
+
+form{
+    text-align: center;
+}
+
+#div1{
+    display: inline-block;
 }
