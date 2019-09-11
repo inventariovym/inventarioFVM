@@ -7,24 +7,18 @@
 <section class="contenido">
 
     <div class="container">
-        <h1>ACTUALIZACION DE CONTRASEÑA</h1>
+        <h1>ACTUALIZACIÓN DE CONTRASEÑA</h1>
 
-        <div class="container ">
+        <div>
             <form action="/navegacion/users/newPass/{{username}}" method="POST" autocomplete="off">
-
-                <p class="text-center">
-                    <label>Nueva contraseña:</label>
-                </p>
-                <input type="password" name="password" id="password" placeholder=" contraseña" required>
-
-                <p class="text-center">
-                    <label>Confirme la contraseña:</label>
-                </p>
-                
-                <input type="password" name="confirmar" id="confirmar" placeholder=" contraseña" required> 
-                
-                <div>
-                    </br>
+                <main>
+                    <div><label>Nueva contraseña:</label></div>
+                    <div><input type="password" name="password" id="password" placeholder=" contraseña" required></div>
+                    <div><label>Confirme la contraseña:</label></div>
+                    <div><input type="password" name="confirmar" id="confirmar" placeholder=" contraseña" required></div>
+                    <br>
+                </main>                
+                <div style="text-align: center">
                     <button type="submit">Actualizar <i class="fas fa-sync-alt"></i></button>
                     <a href="/navegacion/users">
                         <button style="background-color: red; margin-left: 15px">Cancelar <i class="fas fa-ban"></i></button>

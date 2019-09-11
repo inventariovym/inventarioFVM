@@ -11,6 +11,10 @@ h1 {
     color: black;
 }
 
+h3 {
+    font-family: 'Calibri';
+}
+
 table {
     width: 100%;
 }
@@ -46,7 +50,7 @@ table tr:nth-child(odd) {
 button {
     margin: 0 auto;
     height: 35px;
-    width: 150px;
+    width: 180px;
     border-style: none;
     border-radius: 5px;
     color: white;
@@ -66,11 +70,18 @@ input {
     border-radius: 2px;
     border: 1px solid #39c;
     height: 30px;
-    width: 90%;
+    width: 320px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 15px;
 }
 
-p {
-    margin-top: 3px;
-}
+main {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 200px 350px;
+    grid-template-rows: 45px 45px;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-top: 20px;
+  }

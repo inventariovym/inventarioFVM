@@ -7,27 +7,21 @@
     <div>
         <h1>Creación de usuario nuevo</h1>
     </div>
-    <div style="margin-left: 35%; margin-right: 35%">
+    <div>
         <form action="/navegacion/users/signIn" method="POST" autocomplete="off">
-
-            <p>
-                <label>Nombre de usuario: </label><br><br>
-                <input name="username" id="username" type="text" required>
-            </p>
-    
-            <p>
-                <label>Contraseña: </label><br><br>
-                <input name="password" id="password" type="password" required>
-            </p>
-    
-            <p class="div1" style="margin-top: 25px">
-                <div>
-                    <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
+            <main>
+                <div><label>Nombre de usuario: </label><br><br></div>
+                <div><input name="username" id="username" type="text" required></div>
+                <div><label>Contraseña: </label><br><br></div>
+                <div><input name="password" id="password" type="password" required></div>
+                <br>
+            </main>
+            <div style="text-align: center">
+                <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
                     <a href="/navegacion/users">
                         <button style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
                     </a>
-                </div>
-            </p>
+            </div>
         </form>
     </div>
 </section>

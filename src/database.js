@@ -12,6 +12,15 @@ var pool = new db({
 
 
 module.exports = {
+  getNuevoProducto: function (req, res) { //NUEVO PRODUCTO
+    if (req.session.username) {
+
+      res.render('newProduct.html');
+
+    } else {
+      res.redirect('/');
+    }
+  },
 
   getMenu: function (req, res) { //NAVEGACION
     if (req.session.username) {
@@ -48,9 +57,7 @@ module.exports = {
 
   getSalidaProduc: function (req, res) { //SALIDA PRODUCTOS
     if (req.session.username) {
-
       res.render('salidaProductos.html');
-
     } else {
       res.redirect('/');
     }

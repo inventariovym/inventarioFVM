@@ -37,6 +37,7 @@ ruta.get('/navegacion/compra', db.getCompra); //Compras
 ruta.get('/navegacion/salidaProducto', db.getSalidaProduc); //Salida Productos
 ruta.get('/navegacion/reportes', db.getReporte); //Reportes
 ruta.get('/navegacion/users', db.getUser); //Administrar Accesos
+ruta.get('/navegacion/newProduct', db.getNuevoProducto); //Crear producto
 
 
 //SECUNDARIOS
