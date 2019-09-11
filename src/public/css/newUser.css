@@ -40,7 +40,7 @@ table tr:nth-child(odd) {
 
 button {
     margin: 0 auto;
-    margin-left: 20px;
+    margin-left: 10px;
     height: 35px;
     width: 150px;
     border-style: none;
@@ -51,8 +51,9 @@ button {
 
 label {
     font-family: 'Calibri';
-    margin-left: 20px;
+    margin-left: 0px;
     font-size: 18px;
+    margin-left: 2%;
 }
 
 input {
@@ -60,7 +61,7 @@ input {
     border-radius: 2px;
     border: 1px solid #39c;
     height: 30px;
-    width: 90%;
+    width: 320px;
     margin-left: 2%;
     margin-right: 2%;
 }
