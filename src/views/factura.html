@@ -4,43 +4,59 @@
 {{> cabecera}}
 {{> navegacion}}
 
-<section class="contenido" >
+<section class="contenido">
     <div class="centrar">
         <h1>Detalles de la compra</h1>
     </div>
 
     <main style="font-family: 'Calibri'; margin-bottom: 10px">
         <div><label>Fecha: </label></div>
-        <div><input type="date"></div>
-        <div><label>Proveedor: </label></div>
-        <div><input type="search" placeholder="proveedor..." required></div>
-        <div><label>Producto: </label></div>
-        <div><input type="text" id="producto" placeholder="producto..." required></div>
-        <div><label>Cantidad: </label></div>
-        <div><input type="number" id="cantidad" placeholder="cantidad..." required></div>
-        <div><label>Valor: </label></div>
-        <div><input id="valor" type="number" placeholder="valor..." required></div>
-      </main>
-      <div>
-          <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i class="fas fa-plus-circle"></i></button>
-
-        </div>
         <div>
-            <h1>Facturación de productos</h1>
+            <input type="date">
         </div>
-        <div class="listaProducto" >
-            <div id="adicionados"></div>
-            <table id="mytable">
-               <tr>
+
+        <div><label>Proveedor: </label></div>
+        <div>
+            <input type="search" placeholder="proveedor..." required>
+        </div>
+
+        <div><label>Producto: </label></div>
+        <div>
+            <input type="text" id="producto" placeholder="producto..." required>
+        </div>
+
+        <div><label>Cantidad: </label></div>
+        <div>
+            <input type="number" id="cantidad" type="number" min="1" placeholder="cantidad..." required>
+        </div>
+
+        <div><label>Valor: </label></div>
+        <div>
+            <input id="valor" type="number" min="0" type="number" placeholder="valor..." required>
+        </div>
+        
+    </main>
+    <div>
+        <button id="adicionar" class="botones-factura" type="submit">Adicionar a la factura <i
+                class="fas fa-plus-circle"></i></button>
+
+    </div>
+    <div>
+        <h1>Facturación de productos</h1>
+    </div>
+    <div class="listaProducto">
+        <div id="adicionados"></div>
+        <table id="mytable">
+            <tr>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Valor</th>
                 <th>Eliminar</th>
-                </tr>
-            </table>
-        </div>
+            </tr>
+        </table>
     </div>
-    <div class="button-guarda" >
+    </div>
+    <div class="button-guarda">
         <button id="#" type="submit" class="botones-factura">Guardar factura <i class="fas fa-save"></i></button>
     </div>
 </section>
@@ -56,7 +72,7 @@
 
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
                 document.getElementById("valor").value != "") {
-                    
+
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
@@ -82,7 +98,7 @@
 
         });
 
-        $(document).on('click', '.button-delete', function () { 
+        $(document).on('click', '.button-delete', function () {
 
             var button_id = $(this).attr("id");
             //cuando da click obtenemos el id del boton
@@ -91,18 +107,18 @@
             $("#adicionados").text("Cantidad de productos adicionados: ");
             var nFilas = $("#mytable tr").length;
             $("#adicionados").append(nFilas - 1);
-        }); 
+        });
 
         function alerta() {
             var mensaje;
             var opcion = confirm("Clicka en Aceptar o Cancelar");
             if (opcion == true) {
                 mensaje = "Has clickado OK";
-	        } else {
-	            mensaje = "Has clickado Cancelar";
-	        }
-	    document.getElementById("ejemplo").innerHTML = mensaje;
-}
+            } else {
+                mensaje = "Has clickado Cancelar";
+            }
+            document.getElementById("ejemplo").innerHTML = mensaje;
+        }
 
     });
 </script>
