@@ -3,28 +3,38 @@
 {{> navegacion}}
 
 <section style="margin-left: 230px">
-        <div>
-            <h1>Creación producto nuevo</h1>
-        </div>
-        <div>
-            <form>
-                <main>
-                    <div><label>Código del producto: </label><br><br></div>
-                    <div><input name="codProduct" id="" type="number"></div>
-                    <div><label>Nombre del producto: </label><br><br></div>
-                    <div><input name="nameProduct" id="" type="text"></div>
-                    <div><label>Cantidad inicial: </label><br><br></div>
-                    <div><input name="cant" id="" type="number"></div>
-                    <br>
-                </main>
-                <div style="text-align: center">
-                    <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
-                        <a href="/navegacion/producto">
-                            <button style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
-                        </a>
+    <div>
+        <h1>Creación producto nuevo</h1>
+    </div>
+    <div>
+        <form action="/navegacion/users/signIn" method="POST" autocomplete="off">
+            <main>
+                <div><label>Nombre del producto: </label><br><br></div>
+                <div><input name="nameProduct" id="nameProduct" type="text" placeholder="nombre..." required><br><br> </div>
+                <div><label>Cantidad inicial:</label></div>
+                <div><input name="cantidad" id="cantidad" type="number" min="1" placeholder="cantidad..."
+                        required><br><br> </div>
+                <div>
+                    <label>Medida:</label>
+                    <select style="width: 110px; height: 30px">
+                        <option>seleccionar..</option>
+                        <option>kg</option>
+                        <option>ml</option>
+                        <option>g</option>
+                        <option>und</option>
+                    </select>
                 </div>
-            </form>
-        </div>
-    </section>
+                <br><br>
+            </main>
+            <div style="text-align: center">
+                <button type="submit" style="background-color: #0E7771">Aceptar <i
+                        class="fas fa-check-circle"></i></button>
+                <a href="/navegacion/producto">
+                    <button type="button" style="background-color: red">Cancelar<i class="fas fa-ban"></i></button>
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
 
 {{> footer}}
