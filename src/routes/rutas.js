@@ -37,8 +37,6 @@ ruta.get('/navegacion/compra', db.getCompra); //Compras
 ruta.get('/navegacion/salidaProducto', db.getSalidaProduc); //Salida Productos
 ruta.get('/navegacion/reportes', db.getReporte); //Reportes
 ruta.get('/navegacion/users', db.getUser); //Administrar Accesos
-ruta.get('/navegacion/newProduct', db.getNuevoProducto); //Crear producto
-
 
 //SECUNDARIOS
 ruta.get('/navegacion/users/signIn', db.getNewUser);
@@ -52,11 +50,14 @@ ruta.get('/navegacion/users/newPass/:id', function (req, res) {  // Cambiar  con
     }
 });
 
+ruta.get('/navegacion/producto/newProduct', db.getNuevoProducto); //Crear producto
+
 //PETICIONES
 
 ruta.post('/', db.postLogin);
 ruta.post('/navegacion/users/signIn', db.postRegisUser);
 ruta.post('/navegacion/users/newPass/:id', db.postActualizarPass);
 ruta.post('/navegacion/users/delUser/:id', db.postDelUser);
-
+ruta.post('/navegacion/producto', db.postBusquedaProd); 
+ruta.post('/navegacion/producto/newProduct', db.postNuevoProducto); //Crear producto
 module.exports = ruta; 

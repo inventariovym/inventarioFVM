@@ -6,7 +6,16 @@
     <div>
         <h1>Listado de productos</h1>
     </div>
-    
+    <div style="margin-left: 35px; margin-top: 15px">
+        <form action="/navegacion/producto" method="POST">
+
+            <input type="text" name="producto" id="producto" placeholder="Nombre del producto" required>
+            <button type="submit" style="background-color: #13AAA1">Buscar producto <i
+                    class="fas fa-search"></i></button>
+
+        </form>
+    </div> 
+     <br>
     <div class="datos">
         <table>
             <tr>
@@ -24,21 +33,34 @@
             </tr>
             {{else}}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>vacio</td>
+                <td>vacio</td>
+                <td>vacio</td>
+                <td>vacio</td>
             </tr>
             {{/each}}
 
         </table>
     </div>
+
     <div style="margin-left: 35px; margin-top: 15px">
-            <input type="search" id="producto" placeholder="Código del producto">
-            <button style="background-color: #13AAA1">Buscar producto <i class="fas fa-search"></i></button>
-            <a href="/navegacion/newProduct"><button style="background-color: #0E7771">Crear producto <i class="fas fa-plus-circle"></i></button></a>
-        </div>
+            <a href="/navegacion/producto/newProduct">
+                <button type="button" style="background-color: #0E7771">Crear producto <i class="fas fa-plus-circle"></i>
+                </button>
+            </a>
+        </div> 
 </section>
 
+{{> footer}} 
 
-{{> footer}}
+{{#each exitoUser }}
+<script>
+    toastr.success("Operacion realizada satisfactoriamente", "EXITO");
+</script>
+{{else}}
+{{#each errorUser }}
+<script>
+    toastr.warning("Operacion fallida, por favor verificar los datos", "ATENCION");
+</script>
+{{/each}}
+{{/each}}

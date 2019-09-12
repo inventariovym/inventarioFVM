@@ -327,7 +327,7 @@ COPY public.factura (idfactura, nitp, valortotal, fecharegistro) FROM stdin;
 -- Name: factura_id; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.factura_id', 1000, false);
+SELECT pg_catalog.setval('public.factura_id', 1000, true);
 
 
 --
@@ -374,7 +374,7 @@ SELECT pg_catalog.setval('public.plato_codigoplato_seq', 1, false);
 -- Name: plato_id; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.plato_id', 1000, false);
+SELECT pg_catalog.setval('public.plato_id', 1000, true);
 
 
 --
@@ -382,10 +382,11 @@ SELECT pg_catalog.setval('public.plato_id', 1000, false);
 --
 
 COPY public.producto (codigoprod, nombreprod, medida, cantidadtot) FROM stdin;
-1000	aceite	ml	3000
-1001	huevo	und	60
-1003	sal	g	500
+1001	aceite	ml	3000
+1002	huevo	und	60
+1003	sol	g	500
 1004	azucar	g	500
+1005	leche	ml	5000
 \.
 
 
@@ -400,7 +401,7 @@ SELECT pg_catalog.setval('public.producto_codigoprod_seq', 1, false);
 -- Name: producto_id; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.producto_id', 1000, false);
+SELECT pg_catalog.setval('public.producto_id', 1005, true);
 
 
 --

@@ -7,7 +7,7 @@
     overflow: scroll;
     width: 90%;
     margin: 0 auto;
-    height: 350px; 
+    height: auto; 
     width: 90%; 
 }
 
@@ -83,7 +83,7 @@ input {
     border-radius: 2px;
     border: 1px solid #39c;
     height: 25px;
-    width: 180px;
+    width: 250px;
     margin-left: 2%;
     margin-right: 2%;
 }

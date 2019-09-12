@@ -12,6 +12,7 @@ var pool = new db({
 
 
 module.exports = {
+
   getNuevoProducto: function (req, res) { //NUEVO PRODUCTO
     if (req.session.username) {
 
@@ -46,11 +47,14 @@ module.exports = {
   getProducto: async function (req, res) { //PRODUCTOS
     if (req.session.username) {
       await pool.query('SELECT * FROM producto', function (err, resultado, fields) {
-        var producto = resultado.rows;
-        res.render('productos.html', { producto });
 
+        var producto = resultado.rows;
+        res.render('productos.html', { producto, errorUser, exitoUser });
+
+        exitoUser = []; errorUser = [];
       });
     } else {
+      exitoUser = []; errorUser = [];
       res.redirect('/');
     }
   },
@@ -84,7 +88,7 @@ module.exports = {
       });
 
     } else {
-
+      exitoUser = []; errorUser = [];
       res.redirect('/');
     }
   },
@@ -180,7 +184,7 @@ module.exports = {
         }
       })
     } else {
-
+      exitoUser = []; errorUser = [];
       res.redirect('/');
     }
   },
@@ -207,7 +211,64 @@ module.exports = {
         }
       })
     } else {
+      exitoUser = []; errorUser = [];
+      res.redirect('/');
+    }
+  },
 
+  postBusquedaProd: async function (req, res) {
+    if (req.session.username) {
+
+      var { producto } = req.body;
+      var producto1 = '%' + producto.toUpperCase() + '%';
+      var producto2 = '%' + producto.toLowerCase() + '%';
+
+      await pool.query('SELECT * FROM producto WHERE  nombreprod LIKE $1 or  nombreprod LIKE $2', [producto1, producto2], (error, resultado) => {
+
+        if (error) {
+          res.redirect('/navegacion/producto');
+
+        } else {
+          var producto = resultado.rows;
+          res.render('productos.html', { producto });
+
+        }
+      })
+
+    } else {
+
+      res.redirect('/');
+    }
+  },
+
+  postNuevoProducto: async function (req, res) {
+
+    if (req.session.username) {
+
+      var { nameProduct, medida, cantidad } = req.body;
+      var producto= "'producto_id'"; 
+      console.log(medida);
+      console.log(nameProduct);
+      console.log(cantidad);
+
+      await pool.query('INSERT INTO producto values (nextval('+producto+'), $1, $2, $3)', [nameProduct, medida, cantidad], (error, resultado) => {
+
+        if (error) {
+
+          errorUser.push(true);
+          exitoUser = [];
+          res.redirect('/navegacion/producto');
+
+        } else {
+
+          exitoUser.push(true);
+          errorUser = [];
+          res.redirect('/navegacion/producto');
+        }
+      })
+
+    } else {
+      exitoUser = []; errorUser = [];
       res.redirect('/');
     }
   }
