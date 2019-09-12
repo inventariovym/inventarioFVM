@@ -6,7 +6,7 @@ var pool = new db({
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1',
+  password: '1234',
   port: 5432
 })
 

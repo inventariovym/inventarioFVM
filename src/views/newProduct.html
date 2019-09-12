@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/newUser.css">
+<link rel="stylesheet" href="/css/newPass.css">
 {{> cabecera}}
 {{> navegacion}}
 
@@ -9,23 +9,21 @@
     <div>
         <form action="/navegacion/producto/newProduct" method="POST" autocomplete="off">
             <main>
-                <div><label>Nombre del producto: </label><br><br></div>
-                <div><input name="nameProduct" id="nameProduct" type="text" placeholder="nombre..." required><br><br> </div>
+                <div><label>Nombre del producto: </label></div>
+                <div><input name="nameProduct" id="nameProduct" type="text" placeholder="nombre..." required></div>
                 <div><label>Cantidad inicial:</label></div>
-                <div><input name="cantidad" id="cantidad" type="number" min="1" placeholder="cantidad..."
-                        required><br><br> </div>
-                <div>
-                    <label>Medida:</label>
+                <div><input name="cantidad" id="cantidad" type="number" min="1" placeholder="cantidad..." required></div>
+            </main>
+                <div style="width: 100%; margin-top: 15px; margin-bottom: 20px">
+                    <label>Medida </label>
                     <select name="medida" id="medida" style="width: 110px; height: 30px">
-                        <option>seleccionar..</option>
+                        <option>Seleccionar...</option>
                         <option>kg</option>
                         <option>ml</option>
                         <option>g</option>
                         <option>und</option>
                     </select>
                 </div>
-                <br><br>
-            </main>
             <div style="text-align: center">
                 <button type="submit" style="background-color: #0E7771">Aceptar <i
                         class="fas fa-check-circle"></i></button>

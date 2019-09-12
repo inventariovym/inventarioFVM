@@ -12,7 +12,7 @@
     <main style="font-family: 'Calibri'; margin-bottom: 10px">
         <div><label>Fecha: </label></div>
         <div>
-            <input type="date">
+            <input type="date" id="fecha">
         </div>
 
         <div><label>Proveedor: </label></div>
@@ -32,7 +32,7 @@
 
         <div><label>Valor: </label></div>
         <div>
-            <input id="valor" type="number" min="0" type="number" placeholder="valor..." required>
+            <input id="valor" type="number" min="0" placeholder="valor..." required>
         </div>
         
     </main>
@@ -48,6 +48,7 @@
         <div id="adicionados"></div>
         <table id="mytable">
             <tr>
+                <th>Fecha</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Valor</th>
@@ -71,15 +72,16 @@
         $('#adicionar').click(function () {
 
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
-                document.getElementById("valor").value != "") {
+                document.getElementById("valor").value != "" && document.getElementById("fecha").value != "") {
 
+                var fecha = document.getElementById("fecha").value;
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
                 var i = 1; //contador para asignar id al boton que borrara la fila
 
                 //esto seria lo que contendria la fila
-                var fila = '<tr id="row' + i + '"><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
+                var fila = '<tr id="row' + i + '"><td>' + fecha + '</td><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
                 i++;
 
                 $('#mytable tr:first').after(fila);
@@ -88,7 +90,7 @@
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
 
-
+                document.getElementById("fecha").value = "";
                 document.getElementById("cantidad").value = "";
                 document.getElementById("valor").value = "";
                 document.getElementById("producto").value = "";
