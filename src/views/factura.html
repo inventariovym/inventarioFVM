@@ -17,7 +17,7 @@
 
         <div><label>NIT Proveedor: </label></div>
         <div>
-            <input type="search" placeholder="proveedor..." required>
+            <input id="proveedor" type="search" placeholder="proveedor..." required>
         </div>
 
         <div><label>Producto: </label></div>
@@ -30,7 +30,7 @@
             <input type="number" id="cantidad" type="number" min="1" placeholder="cantidad..." required>
         </div>
 
-        <div><label>Valor: </label></div>
+        <div><label>Valor total: </label></div>
         <div>
             <input id="valor" type="number" min="0" placeholder="valor..." required>
         </div>
@@ -49,6 +49,7 @@
         <table id="mytable">
             <tr>
                 <th>Fecha</th>
+                <th>NIT proveedor</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Valor</th>
@@ -70,20 +71,24 @@
         //obtenemos el valor de los input
         $('#adicionar').click(function () {
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
-                document.getElementById("valor").value != "" && document.getElementById("fecha").value != "") {
+                document.getElementById("valor").value != "" && document.getElementById("fecha").value != "" &&
+                document.getElementById("proveedor").value != "") {
+                    
                 var fecha = document.getElementById("fecha").value;
+                var proveedor = document.getElementById("proveedor").value;
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
                 var i = 1; //contador para asignar id al boton que borrara la fila
                 //esto seria lo que contendria la fila
-                var fila = '<tr id="row' + i + '"><td>' + fecha + '</td><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
+                var fila = '<tr id="row' + i + '"><td>' + fecha + '</td><td>' + proveedor + '</td><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
                 i++;
                 $('#mytable tr:first').after(fila);
                 $("#adicionados").text("Cantidad de productos adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
                 document.getElementById("fecha").value = "";
+                document.getElementById("proveedor").value = "";
                 document.getElementById("cantidad").value = "";
                 document.getElementById("valor").value = "";
                 document.getElementById("producto").value = "";

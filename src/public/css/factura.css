@@ -208,7 +208,7 @@ label {
 
 .listaProducto{
     overflow: scroll; 
-    max-height: 250px; 
+    max-height: 200px; 
     width: 90%; 
     margin: 0 auto; 
 }
