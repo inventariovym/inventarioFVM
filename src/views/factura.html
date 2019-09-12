@@ -66,42 +66,31 @@
 
 
 <script>
-
     $(document).ready(function () {
         //obtenemos el valor de los input
         $('#adicionar').click(function () {
-
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
                 document.getElementById("valor").value != "" && document.getElementById("fecha").value != "") {
-
                 var fecha = document.getElementById("fecha").value;
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
                 var i = 1; //contador para asignar id al boton que borrara la fila
-
                 //esto seria lo que contendria la fila
                 var fila = '<tr id="row' + i + '"><td>' + fecha + '</td><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
                 i++;
-
                 $('#mytable tr:first').after(fila);
                 $("#adicionados").text("Cantidad de productos adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
-
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
-
                 document.getElementById("fecha").value = "";
                 document.getElementById("cantidad").value = "";
                 document.getElementById("valor").value = "";
                 document.getElementById("producto").value = "";
                 document.getElementById("producto").focus();
-
             }
-
         });
-
         $(document).on('click', '.button-delete', function () {
-
             var button_id = $(this).attr("id");
             //cuando da click obtenemos el id del boton
             $('#row' + button_id + '').remove(); //borra la fila
@@ -110,7 +99,6 @@
             var nFilas = $("#mytable tr").length;
             $("#adicionados").append(nFilas - 1);
         });
-
         function alerta() {
             var mensaje;
             var opcion = confirm("Clicka en Aceptar o Cancelar");
@@ -121,6 +109,5 @@
             }
             document.getElementById("ejemplo").innerHTML = mensaje;
         }
-
     });
 </script>

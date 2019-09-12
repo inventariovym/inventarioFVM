@@ -6,12 +6,15 @@
     <div>
         <h1>Listado de productos</h1>
     </div>
-    <div style="margin-left: 35px; margin-top: 15px">
+    <div style="margin-left: 35px; margin-top: 5px">
         <form action="/navegacion/producto" method="POST">
 
-            <input type="text" name="producto" id="producto" placeholder="Nombre del producto" required>
+            <input type="text" name="producto" id="producto" placeholder="Nombre del producto">
             <button type="submit" style="background-color: #13AAA1">Buscar producto <i
                     class="fas fa-search"></i></button>
+            <a href="/navegacion/producto">
+                <button style="background-color: red; width: 40px"><i class="fas fa-sync-alt"></i></button>
+            </a>
 
         </form>
     </div> 
