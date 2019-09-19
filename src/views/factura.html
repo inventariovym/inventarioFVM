@@ -17,7 +17,7 @@
 
         <div><label>NIT Proveedor: </label></div>
         <div>
-            <input id="proveedor" type="search" placeholder="proveedor..." required>
+            <input id="proveedor" type="text" placeholder="proveedor..." required>
         </div>
 
         <div><label>Producto: </label></div>
@@ -34,12 +34,17 @@
         <div>
             <input id="valor" type="number" min="0" placeholder="valor..." required>
         </div>
-        
+
     </main>
     <div>
-        <button id="adicionar" class="botones-factura" type="submit" style="margin-left: 45px; margin-top: 15px; background-color: #0E7771">Adicionar a la factura <i
+        <button id="adicionar" class="botones-factura" type="submit"
+            style="margin-left: 45px; margin-top: 15px; background-color: #0E7771">Adicionar a la factura <i
                 class="fas fa-plus-circle"></i></button>
-
+        <a href="/navegacion/compra/nuevoProveedor">
+            <button id="" class="botones-factura" type="submit"
+                style="margin-left: 15px; margin-top: 15px; background-color: #13A59D">Crear proveedor <i
+                    class="fas fa-user-plus"></i></button>
+        </a>
     </div>
     <div>
         <h1>Facturación de productos</h1>
@@ -57,7 +62,9 @@
     </div>
     </div>
     <div class="button-guarda">
-        <button id="#" type="submit" class="botones-factura" style="margin-left: 45px; margin-top: 15px; background-color: #0E7771">Guardar factura <i class="fas fa-save"></i></button>
+        <button id="#" type="submit" class="botones-factura"
+            style="margin-left: 45px; margin-top: 15px; background-color: #0E7771">Guardar factura <i
+                class="fas fa-save"></i></button>
     </div>
 </section>
 
@@ -71,20 +78,19 @@
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
                 document.getElementById("valor").value != "" && document.getElementById("fecha").value != "" &&
                 document.getElementById("proveedor").value != "") {
-                    
+
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
                 var i = 1; //contador para asignar id al boton que borrara la fila
                 //esto seria lo que contendria la fila
-                
+
                 var fila = '<tr id="row' + i + '"><td>' + producto + '</td><td>' + cantidad + '</td><td>' + valor + '</td><td><button type="button" name="remove" id="' + i + '" class="button-delete"><i class="fas fa-trash"></i></button> </td></tr > ';
                 i++;
                 $('#mytable tr:first').after(fila);
                 $("#adicionados").text("Cantidad de productos adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
-
                 document.getElementById("cantidad").value = "";
                 document.getElementById("valor").value = "";
                 document.getElementById("producto").value = "";
@@ -112,3 +118,16 @@
         }
     });
 </script>
+
+<!--MENSAJES-->
+{{#each exitoUser }}
+<script>
+    toastr.success("Operacion realizada satisfactoriamente", "EXITO");
+</script>
+{{else}}
+{{#each errorUser }}
+<script>
+    toastr.warning("Operacion fallida, por favor verificar los datos", "ATENCION");
+</script>
+{{/each}}
+{{/each}}

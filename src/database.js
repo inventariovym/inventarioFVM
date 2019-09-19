@@ -36,9 +36,10 @@ module.exports = {
   getCompra: function (req, res) { //COMPRA
     if (req.session.username) {
 
-      res.render('factura.html');
-
+      res.render('factura.html', {errorUser, exitoUser });
+      exitoUser = []; errorUser = [];
     } else {
+      exitoUser = []; errorUser = [];
       res.redirect('/');
     }
   },
@@ -97,6 +98,15 @@ module.exports = {
 
     if (req.session.username) {
       res.render('newUser.html');
+    } else {
+      res.redirect('/');
+    }
+  },
+
+  getNuevoProveedor: function (req, res) { //Registrar Proveedor
+
+    if (req.session.username) {
+      res.render('nuevoProveedor.html');
     } else {
       res.redirect('/');
     }
@@ -241,6 +251,34 @@ module.exports = {
     }
   },
 
+  postNuevoProveedor: async function (req, res) {
+
+    if (req.session.username) {
+
+      var { nitproveedor, nombreproveedor } = req.body;
+
+      await pool.query('INSERT INTO proveedor values ($1, $2)', [nitproveedor, nombreproveedor], (error, resultado) => {
+
+        if (error) {
+
+          errorUser.push(true);
+          exitoUser = [];
+          res.redirect('/navegacion/compra');
+
+        } else {
+
+          exitoUser.push(true);
+          errorUser = [];
+          res.redirect('/navegacion/compra');
+        }
+      })
+
+    } else {
+      exitoUser = []; errorUser = [];
+      res.redirect('/');
+    }
+  },
+
   postNuevoProducto: async function (req, res) {
 
     if (req.session.username) {
@@ -268,7 +306,7 @@ module.exports = {
       exitoUser = []; errorUser = [];
       res.redirect('/');
     }
-  }
+  },
 
 
 };

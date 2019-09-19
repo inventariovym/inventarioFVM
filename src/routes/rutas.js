@@ -51,6 +51,7 @@ ruta.get('/navegacion/users/newPass/:id', function (req, res) {  // Cambiar  con
 });
 
 ruta.get('/navegacion/producto/newProduct', db.getNuevoProducto); //Crear producto
+ruta.get('/navegacion/compra/nuevoProveedor', db.getNuevoProveedor); //Crear nuevo proveedor
 
 //PETICIONES
 
@@ -60,4 +61,6 @@ ruta.post('/navegacion/users/newPass/:id', db.postActualizarPass);
 ruta.post('/navegacion/users/delUser/:id', db.postDelUser);
 ruta.post('/navegacion/producto', db.postBusquedaProd); 
 ruta.post('/navegacion/producto/newProduct', db.postNuevoProducto); //Crear producto
+ruta.post('/navegacion/compra/nuevoProveedor', db.postNuevoProveedor); //Crear proveedor
+
 module.exports = ruta; 
