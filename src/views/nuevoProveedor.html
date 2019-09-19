@@ -1,18 +1,32 @@
-<link rel="stylesheet" href="/css/factura.css">
+<link rel="stylesheet" href="/css/newPass.css">
 
-<div style="text-align: center">
-        <div class="ventana_flotante" style="font-family: 'Calibri'">
-            <span class="helper"></span>
-            <div id="cancelar_proveedor" class="popupCloseButton">X</div>
-            <h1>Crear nuevo proveedor </h1>
-                <div style="margin-bottom: 15px"><label>NIT Empresa</label></div>
-                <div style="margin-bottom: 15px"><input id="nit_proveedor" type="number"></div>
-                <div style="margin-bottom: 15px"><label>Nombre Empresa</label></div>
-                <div style="margin-bottom: 15px"><input id="nombre_proveedor" type="text"></div>
-                <div>
-                    <button id="aceptar_proveedor" class="boton-aceptar-cancelar" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
-                    <button id="cancelar_proveedor" class="boton-aceptar-cancelar" style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
-                </div>
-        </div>
+{{> cabecera}}
+{{> navegacion}}
+
+<section style="margin-left: 230px">
+    <div>
+        <h1>Creación de proveedor nuevo</h1>
     </div>
+    
+    <div>
+        <form action="/navegacion/compra/nuevoProveedor" method="POST" autocomplete="off">
+            <main>
+                <div><label>NIT Proveedor: </label><br><br></div>
+                <div><input name="nitproveedor" id="nitproveedor" type="text" required></div>
+                <div><label>Razón social Proveedor: </label><br><br></div>
+                <div><input name="nombreproveedor" id="nombreproveedor" type="text" required></div>
+                <br>
+            </main>
+            <div style="text-align: center">
+                <button type="submit" style="background-color: #0E7771">Aceptar <i class="fas fa-check-circle"></i></button>
+                    <a href="/navegacion/compra">
+                        <button type="button" style="background-color: red">Cancelar <i class="fas fa-ban"></i></button>
+                    </a>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+{{> footer}}
 

@@ -39,7 +39,9 @@
     <div>
         <button id="adicionar" class="botones-factura" type="submit" style="margin-left: 45px; margin-top: 15px; background-color: #0E7771">Adicionar a la factura <i
                 class="fas fa-plus-circle"></i></button>
-
+       <a href="/navegacion/compra/nuevoProveedor">
+        <button id="" class="botones-factura" type="submit" style="margin-left: 15px; margin-top: 15px; background-color: #13A59D">Crear proveedor <i class="fas fa-user-plus"></i></button>
+        </a>    
     </div>
     <div>
         <h1>Facturación de productos</h1>
@@ -48,8 +50,6 @@
         <div id="adicionados"></div>
         <table id="mytable">
             <tr>
-                <th>Fecha</th>
-                <th>NIT proveedor</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Valor</th>
@@ -71,11 +71,8 @@
         //obtenemos el valor de los input
         $('#adicionar').click(function () {
             if (document.getElementById("producto").value != "" && document.getElementById("cantidad").value != "" &&
-                document.getElementById("valor").value != "" && document.getElementById("fecha").value != "" &&
-                document.getElementById("proveedor").value != "") {
-                    
-                var fecha = document.getElementById("fecha").value;
-                var proveedor = document.getElementById("proveedor").value;
+                document.getElementById("valor").value != "") {
+                
                 var producto = document.getElementById("producto").value;
                 var cantidad = document.getElementById("cantidad").value;
                 var valor = document.getElementById("valor").value;
@@ -87,8 +84,6 @@
                 $("#adicionados").text("Cantidad de productos adicionados: "); //limpia el div adicioandos para que no se vayan acumulando
                 var nFilas = $("#mytable tr").length;
                 $("#adicionados").append(nFilas - 1);//le resto 1 para no contar la fila del header
-                document.getElementById("fecha").value = "";
-                document.getElementById("proveedor").value = "";
                 document.getElementById("cantidad").value = "";
                 document.getElementById("valor").value = "";
                 document.getElementById("producto").value = "";

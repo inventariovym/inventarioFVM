@@ -102,6 +102,15 @@ module.exports = {
     }
   },
 
+  getNuevoProveedor: function (req, res) { //Registrar Proveedor
+
+    if (req.session.username) {
+      res.render('nuevoProveedor.html');
+    } else {
+      res.redirect('/');
+    }
+  },
+
   postLogin: async function (req, res) { //INICIO DE SESION
 
     await pool.query('SELECT * FROM login WHERE id_usuario = $1', [req.body.username], (err, resultado) => {
@@ -241,6 +250,36 @@ module.exports = {
     }
   },
 
+  postNuevoProveedor: async function (req, res) {
+
+    if (req.session.username) {
+
+      var { nitproveedor, nombreproveedor } = req.body;
+      console.log(nitproveedor);
+      console.log(nombreproveedor);
+
+      await pool.query('INSERT INTO proveedor values ($1, $2)', [nitproveedor, nombreproveedor], (error, resultado) => {
+
+        if (error) {
+
+          errorUser.push(true);
+          exitoUser = [];
+          res.redirect('/navegacion/compra');
+
+        } else {
+
+          exitoUser.push(true);
+          errorUser = [];
+          res.redirect('/navegacion/compra');
+        }
+      })
+
+    } else {
+      exitoUser = []; errorUser = [];
+      res.redirect('/');
+    }
+  },
+
   postNuevoProducto: async function (req, res) {
 
     if (req.session.username) {
@@ -271,7 +310,7 @@ module.exports = {
       exitoUser = []; errorUser = [];
       res.redirect('/');
     }
-  }
+  },
 
 
 };
