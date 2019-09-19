@@ -6,7 +6,7 @@ var pool = new db({
   user: 'postgres',
   host: 'localhost',
   database: 'inventario',
-  password: '1234',
+  password: '1',
   port: 5432
 })
 
@@ -247,9 +247,6 @@ module.exports = {
 
       var { nameProduct, medida, cantidad } = req.body;
       var producto= "'producto_id'"; 
-      console.log(medida);
-      console.log(nameProduct);
-      console.log(cantidad);
 
       await pool.query('INSERT INTO producto values (nextval('+producto+'), $1, $2, $3)', [nameProduct, medida, cantidad], (error, resultado) => {
 
