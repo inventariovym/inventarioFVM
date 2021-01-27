@@ -1,0 +1,76 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body { 
+    background-color: #f3fef3;
+    font-family: 'Nunito', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* -----  HEADER  --------*/
+header {
+    padding: 10px 0;
+}
+
+header .logo {
+    text-align: center;
+}
+
+header .logo img {
+    width: 40%;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+} 
+
+header .logo h1 {
+    font-size: 25px;
+}
+
+header .title {
+    text-align: center;
+    font-weight: 700;
+}
+
+header .title #title_line {
+    width: 60%;
+}
+
+header .info {
+    text-align: center;
+}
+
+/* --- Links -------- */
+.links {
+    display: grid;
+    justify-content: center;
+    max-width: 800px;
+}
+
+.links button {
+    grid-column: auto;
+    width: 200px;
+    margin: 10px 0; 
+    padding: 20px;
+    background-color: darkcyan;
+    border-radius: 20px;
+    border: none;
+}
+
+.links button a {
+    text-decoration: none;
+    color: #f3fef3;
+    font-size: 15px;
+}
+
+.links button a:hover {
+    cursor: pointer;
+    color: black;
+}
